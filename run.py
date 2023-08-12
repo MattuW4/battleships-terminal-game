@@ -1,7 +1,6 @@
 from random import randint
 
 def start_game():
-    
     print("/" + "-" *80 + "/")
     print("Welcome to this terminal version of Battleships :D")
     print("Board size: 4 x 4. Total number of ships: 3")
@@ -14,6 +13,7 @@ start_game()
 score = 0
 
 board = []
+
 def print_board(board):
     for i in board:
         print(" ".join(i))
@@ -34,19 +34,23 @@ ship_column = column_random(board)
 
 
 while score < 3:
+    print(score)
     select_row = int(input("Select a row: "))
     select_column = int(input("Select a column: "))
     print(select_row)
     print(select_column)
     if select_row == ship_row and select_column == ship_column:
-        score += 1
+        score += 1        
         print("Hit! You sank an enemy battleship!")
-        print(score)
+        board[select_row][select_column] = "@"
+        print_board(board)
+        
     elif (select_row > 5 or select_row < 0) or (select_column > 5 or select_column < 0):
         print("Out of range! Try again...")
     elif board[select_row][select_column] == "X":
         print("You've already tried these coordinates... Fire again!")
     else:
         print("You missed. Try again...")
+        print(score)
         board[select_row][select_column] = "X"
         print_board(board)
