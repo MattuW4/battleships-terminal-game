@@ -35,8 +35,24 @@ ship_column = column_random(board)
 turns = 0
 
 while turns < 10:
-    select_row = int(input("Select a row: "))
-    select_column = int(input("Select a column: "))
+    while True:
+        try:
+            select_row = int(input("Select a row: "))
+        except ValueError:
+            print("Please enter a number between 0 & 3")
+            continue
+        else:
+            break
+    
+    while True:
+        try:
+            select_column = int(input("Select a column: "))
+        except ValueError:
+            print("Please enter a number between 0 & 3")
+            continue
+        else:
+            break
+
     if select_row == ship_row and select_column == ship_column:
         print("/" + "-" * 40 + "/")
         print("Direct hit! Game over - you win!")
@@ -45,7 +61,7 @@ while turns < 10:
         print_board(board)
         break
     else:
-        if select_row and select_column >= 4:
+        if select_row and select_column > 3:
             print("That's not on the board! Try again...")
         elif (board[select_row][select_column] == "X"):
             print("You've already tried that location! Try again...")
