@@ -1,7 +1,13 @@
+# A simple battleship game.
 from random import randint
+
+# Input to prompt and enter player name.
 captain_name = input("Please enter your name, Captain: \n")
 
-def start_game():
+# Function providing game information that pulls through player name entry.
+
+
+def game_info():
     print("/" + "-" * 80 + "/")
     print("Welcome to this terminal version of Battleships :D")
     print("Board size: 4 x 4. Total number of enemy battleships: 1")
@@ -11,39 +17,57 @@ def start_game():
     print(f"Good luck Captain {captain_name}")
     print("/" + "-" * 80 + "/")
 
-start_game()
 
+game_info()
+
+# Generates an empty board for the game.
 board = []
 
 for i in range(0, 4):
     board.append(["0"]*4)
 
+# Function to print out game board.
+
+
 def print_board(board):
     for i in board:
         print(" ".join(i))
+
+
 print_board(board)
+
+# Function to create random row coordinate for battleship
+
 
 def row_random(board):
     return randint(0, len(board)-1)
 
+# Function to create random column coordinate for battleship
+
+
 def column_random(board):
     return randint(0, len(board)-1)
+
 
 ship_row = row_random(board)
 ship_column = column_random(board)
 
+# Variable to store player turns that can be updated
 turns = 0
 
+# While loop that handles the main game conditions
 while turns < 10:
+    # While loop to validate row input
     while True:
         try:
             select_row = int(input("Select a row: "))
         except ValueError:
-            print("Please enter a number between 0 & 3")
+            print("Please enter a number between 0 & 3").upper
             continue
         else:
             break
-    
+
+    # While loop to validate column input
     while True:
         try:
             select_column = int(input("Select a column: "))
@@ -53,6 +77,7 @@ while turns < 10:
         else:
             break
 
+    # Win, outside range and miss condition loops including game over stage.
     if select_row == ship_row and select_column == ship_column:
         print("/" + "-" * 40 + "/")
         print("Direct hit! Game over - you win!")
