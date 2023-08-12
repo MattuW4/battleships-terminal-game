@@ -1,15 +1,17 @@
 from random import randint
+captain_name = input("Please enter your name, Captain: \n")
 
 def start_game():
     print("/" + "-" *80 + "/")
     print("Welcome to this terminal version of Battleships :D")
-    print("Board size: 4 x 4. Total number of ships: 3")
-    print("Enter a row and column coordinate choice to try and sink the computer battleship.")
-    print("/" + "-" *80 + "/")
-    captain_name = input("Please enter your name, Captain: \n")
+    print("Board size: 4 x 4. Total number of enemy battleships: 1")
+    print("Enter a row number between 0 and 4")
+    print("Enter a column number between 0 and 4")
+    print("Sink the enemy ship before you use your 10 turns up")
+    print(f"Good luck Captain {captain_name}")
+    print("/" + "-" *80 + "/")  
 
 start_game()
-
 
 board = []
 
@@ -30,8 +32,7 @@ def column_random(board):
 
 ship_row = row_random(board)
 ship_column = column_random(board)
-select_row = int(input("Select a row: "))
-select_column = int(input("Select a column: ")) 
+
 
 turns = 0
 
@@ -62,4 +63,5 @@ while turns < 10:
                 break
 
         print_board(board)
+
     
