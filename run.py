@@ -8,14 +8,14 @@ captain_name = input("Please enter your name, Captain: \n")
 
 
 def game_info():
-    print("/" + "-" * 80 + "/")
+    print("/" + "-" * 60 + "/")
     print("Welcome to this terminal version of Battleships :D")
     print("Board size: 4 x 4. Total number of enemy battleships: 1")
     print("Enter a row number between 0 and 4")
     print("Enter a column number between 0 and 4")
     print("Sink the enemy ship before you use your 10 turns up")
     print(f"Good luck Captain {captain_name}")
-    print("/" + "-" * 80 + "/")
+    print("/" + "-" * 60 + "/")
 
 
 game_info()
@@ -92,9 +92,9 @@ while turns < 10:
     else:
         if (select_row < 0 or select_row > 3) \
                 or (select_column < 0 or select_column > 3):
-            print("/" + "-" * 40 + "/")
+            print("/" + "-" * 35 + "/")
             print("That's not on the board! Try again...")
-            print("/" + "-" * 40 + "/")
+            print("/" + "-" * 35 + "/")
         elif (board[select_row][select_column] == "X"):
             print("/" + "-" * 50 + "/")
             print("You've already tried that location! Try again...")
