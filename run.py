@@ -105,7 +105,7 @@ while turns > 0:
             print("That's a miss... you need to improve your aim!")
             print("/" + "-" * 26 + "/")
             board[select_row][select_column] = "X"
-            print("You have " + str(turns) + " turns left")
+            print("Turns remaining: " + str(turns))
             turns -= 1            
             if turns == 0:
                 print("/" + "-" * 40 + "/")
