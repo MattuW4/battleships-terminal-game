@@ -52,11 +52,12 @@ def column_random(board):
 ship_row = row_random(board)
 ship_column = column_random(board)
 
+
 # Variable to store player turns that can be updated
-turns = 0
+turns = 10
 
 # While loop that handles the main game conditions
-while turns < 10:
+while turns > 0:
     # While loop to validate row input
     while True:
         try:
@@ -104,8 +105,9 @@ while turns < 10:
             print("That's a miss! Try again...")
             print("/" + "-" * 26 + "/")
             board[select_row][select_column] = "X"
-            turns += 1
-            if turns == 10:
+            turns -= 1
+            print("You have " + str(turns) + " turns left")
+            if turns == 0:
                 print("/" + "-" * 40 + "/")
                 print("Game over! You've run out of turns")
                 print("/" + "-" * 40 + "/")
