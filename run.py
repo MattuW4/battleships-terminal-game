@@ -62,7 +62,9 @@ while turns < 10:
         try:
             select_row = int(input("Select a row: "))
         except ValueError:
-            print("Please enter a number between 0 & 3").upper
+            print("/" + "-" * 40 + "/")
+            print("Please enter a number between 0 & 3")
+            print("/" + "-" * 40 + "/")
             continue
         else:
             break
@@ -72,26 +74,34 @@ while turns < 10:
         try:
             select_column = int(input("Select a column: "))
         except ValueError:
+            print("/" + "-" * 40 + "/")
             print("Please enter a number between 0 & 3")
+            print("/" + "-" * 40 + "/")
             continue
         else:
             break
 
     # Win, outside range and miss condition loops including game over stage.
     if select_row == ship_row and select_column == ship_column:
-        print("/" + "-" * 40 + "/")
+        print("/" + "-" * 30 + "/")
         print("Direct hit! Game over - you win!")
-        print("/" + "-" * 40 + "/")
+        print("/" + "-" * 30 + "/")
         board[select_row][select_column] = "#"
         print_board(board)
         break
     else:
-        if select_row and select_column > 3:
+        if (select_row < 0 or select_row > 3) or (select_column < 0 or select_column > 3):
+            print("/" + "-" * 40 + "/")
             print("That's not on the board! Try again...")
+            print("/" + "-" * 40 + "/")
         elif (board[select_row][select_column] == "X"):
+            print("/" + "-" * 50 + "/")
             print("You've already tried that location! Try again...")
+            print("/" + "-" * 50 + "/")
         else:
+            print("/" + "-" * 26 + "/")
             print("That's a miss! Try again...")
+            print("/" + "-" * 26 + "/")
             board[select_row][select_column] = "X"
             turns += 1
             if turns == 10:
