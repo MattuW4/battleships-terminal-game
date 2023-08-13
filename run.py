@@ -9,12 +9,11 @@ captain_name = input("Please enter your name, Captain: \n")
 
 def game_info():
     print("/" + "-" * 60 + "/")
-    print("Welcome to this terminal version of Battleships :D")
-    print("Board size: 4 x 4. Total number of enemy battleships: 1")
-    print("Enter a row number between 0 and 3")
-    print("Enter a column number between 0 and 3")
-    print("Sink the enemy ship before you use your 10 turns up")
-    print(f"Good luck Captain {captain_name}!")
+    print("Welcome to this simple version of Battleships :D")
+    print("- The board size is 4 x 4. There is 1 enemy battleship that you are tyring to hunt down.")
+    print("- On each turn enter a number between 0 and 3 for the row and then do the same for the column.")
+    print("- Sink the enemy battleship before you use your 10 turns up!")
+    print(f"Good luck and good hunting, Captain {captain_name}!")
     print("/" + "-" * 60 + "/")
 
 
