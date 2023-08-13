@@ -14,7 +14,7 @@ def game_info():
     print("Enter a row number between 0 and 3")
     print("Enter a column number between 0 and 3")
     print("Sink the enemy ship before you use your 10 turns up")
-    print(f"Good luck Captain {captain_name}")
+    print(f"Good luck Captain {captain_name}!")
     print("/" + "-" * 60 + "/")
 
 
@@ -102,11 +102,11 @@ while turns > 0:
             print("/" + "-" * 50 + "/")
         else:
             print("/" + "-" * 26 + "/")
-            print("That's a miss! Try again...")
+            print("That's a miss... you need to improve your aim!")
             print("/" + "-" * 26 + "/")
             board[select_row][select_column] = "X"
-            turns -= 1
             print("You have " + str(turns) + " turns left")
+            turns -= 1            
             if turns == 0:
                 print("/" + "-" * 40 + "/")
                 print("Game over! You've run out of turns")
