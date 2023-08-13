@@ -90,7 +90,8 @@ while turns < 10:
         print_board(board)
         break
     else:
-        if (select_row < 0 or select_row > 3) or (select_column < 0 or select_column > 3):
+        if (select_row < 0 or select_row > 3) \
+                or (select_column < 0 or select_column > 3):
             print("/" + "-" * 40 + "/")
             print("That's not on the board! Try again...")
             print("/" + "-" * 40 + "/")
