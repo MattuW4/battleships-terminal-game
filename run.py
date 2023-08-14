@@ -9,10 +9,17 @@ captain_name = input("Please enter your name, Captain: \n")
 
 def game_info():
     print("/" + "-" * 60 + "/")
-    print("Welcome to this simple version of Battleships :D")
-    print("- The board size is 4 x 4. There is 1 enemy battleship that you are tyring to hunt down.")
-    print("- On each turn enter a number between 0 and 3 for the row and then do the same for the column.")
-    print("- Sink the enemy battleship before you use your 10 turns up!")
+    print("Welcome to this simple version of Battleships :D \n")
+    print("Game information")
+    print("- The board size is 4 x 4. There is 1 enemy battleship that you are"
+          "trying to hunt down.")
+    print("- On each turn enter a number between 0 and 3"
+          "for the row and then the column.")
+    print("- Sink the enemy battleship before you use your 10 turns up! \n")
+    print("Legend for game")
+    print("- 0 = empty space on board")
+    print("- X = location of a missed shot on board")
+    print("- # = direct hit of the enemey ship \n")
     print(f"Good luck and good hunting, Captain {captain_name}!")
     print("/" + "-" * 60 + "/")
 
@@ -105,7 +112,7 @@ while turns > 0:
             print("/" + "-" * 26 + "/")
             board[select_row][select_column] = "X"
             print("Turns remaining: " + str(turns))
-            turns -= 1            
+            turns -= 1
             if turns == 0:
                 print("/" + "-" * 40 + "/")
                 print("Game over! You've run out of turns")
