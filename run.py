@@ -2,7 +2,17 @@
 from random import randint
 
 # Input to prompt and enter player name.
-captain_name = input("Please enter your name, Captain: \n")
+while True:
+    captain_name = input("Please enter your name, Captain: \n").strip()
+    if len(captain_name) < 2:
+        print(f"\nThe name '{captain_name}' is too short."
+              "Your name needs to be 2 characters or more. \n")
+        continue
+    if not captain_name.isalpha():
+        print(f"\nThe name '{captain_name}' contains none alphabetic characters."
+              "Please enter a name containing only letters. \n")
+        continue
+    break
 
 # Function providing game information that pulls through player name entry.
 
