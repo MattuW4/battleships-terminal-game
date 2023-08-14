@@ -9,8 +9,8 @@ while True:
               "Your name needs to be 2 characters or more. \n")
         continue
     if not captain_name.isalpha():
-        print(f"\nThe name '{captain_name}' contains none alphabetic characters."
-              "Please enter a name containing only letters. \n")
+        print(f"\nThe name '{captain_name}' contains none alphabetic"
+              "characters. Please enter a name containing only letters. \n")
         continue
     break
 
