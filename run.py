@@ -68,6 +68,13 @@ def column_random(board):
 ship_row = row_random(board)
 ship_column = column_random(board)
 
+def output_style(message):
+    border_dash_num = len(message) 
+    print("")
+    print("++" + "-" * border_dash_num + "++")
+    print("  " + message)
+    print("++" + "-" * border_dash_num + "++")
+    print("")
 
 # Variable to store player turns that can be updated
 turns = 10
@@ -79,9 +86,7 @@ while turns > 0:
         try:
             select_row = int(input("Select a row: "))
         except ValueError:
-            print("/" + "-" * 40 + "/")
-            print("Please enter a number between 0 & 3")
-            print("/" + "-" * 40 + "/")
+            output_style("Please enter a number between 0 & 3")
             continue
         else:
             break
@@ -91,42 +96,30 @@ while turns > 0:
         try:
             select_column = int(input("Select a column: "))
         except ValueError:
-            print("/" + "-" * 40 + "/")
-            print("Please enter a number between 0 & 3")
-            print("/" + "-" * 40 + "/")
+            output_style("Please enter a number between 0 & 3")
             continue
         else:
             break
 
     # Win, outside range and miss condition loops including game over stage.
     if select_row == ship_row and select_column == ship_column:
-        print("/" + "-" * 30 + "/")
-        print("Direct hit! Game over - you win!")
-        print("/" + "-" * 30 + "/")
+        output_style("Direct hit! Game over - you win!")
         board[select_row][select_column] = "#"
         print_board(board)
         break
     else:
         if (select_row < 0 or select_row > 3) \
                 or (select_column < 0 or select_column > 3):
-            print("/" + "-" * 35 + "/")
-            print("That's not on the board! Try again...")
-            print("/" + "-" * 35 + "/")
+            output_style("That's not on the board! Try again...")            
         elif (board[select_row][select_column] == "X"):
-            print("/" + "-" * 50 + "/")
-            print("You've already tried that location! Try again...")
-            print("/" + "-" * 50 + "/")
+            output_style("You've already tried that location! Try again...")
         else:
-            print("/" + "-" * 26 + "/")
-            print("That's a miss... you need to improve your aim!")
-            print("/" + "-" * 26 + "/")
+            output_style("That's a miss... you need to improve your aim!")
             board[select_row][select_column] = "X"
             print("Turns remaining: " + str(turns))
             turns -= 1
             if turns == 0:
-                print("/" + "-" * 40 + "/")
-                print("Game over! You've run out of turns")
-                print("/" + "-" * 40 + "/")
+                output_style("Game over! You've run out of turns")
                 break
 
         print_board(board)
