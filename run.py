@@ -68,8 +68,9 @@ def column_random(board):
 ship_row = row_random(board)
 ship_column = column_random(board)
 
+
 def output_style(message):
-    border_dash_num = len(message) 
+    border_dash_num = len(message)
     print("")
     print("++" + "-" * border_dash_num + "++")
     print("  " + message)
@@ -77,6 +78,8 @@ def output_style(message):
     print("")
 
 # Variable to store player turns that can be updated
+
+
 turns = 10
 
 # While loop that handles the main game conditions
@@ -110,7 +113,7 @@ while turns > 0:
     else:
         if (select_row < 0 or select_row > 3) \
                 or (select_column < 0 or select_column > 3):
-            output_style("That's not on the board! Try again...")            
+            output_style("That's not on the board! Try again...")
         elif (board[select_row][select_column] == "X"):
             output_style("You've already tried that location! Try again...")
         else:
