@@ -1,23 +1,9 @@
 # A simple battleship game.
 from random import randint
 
-# Input to prompt, validate and enter player name.
-while True:
-    captain_name = input("Please enter your name, Captain: \n").strip()
-    if len(captain_name) < 2:
-        print(f"\nThe name '{captain_name}' is too short."
-              "Your name needs to be 2 characters or more. \n")
-        continue
-    if not captain_name.isalpha():
-        print(f"\nThe name '{captain_name}' contains none alphabetic"
-              "characters. Please enter a name containing only letters. \n")
-        continue
-    break
-
 # Function providing game information that pulls through player name entry.
 
-
-def game_info():
+def game_info(captain_name):
     print("++" + "-" * 60 + "++")
     print("  Welcome to this simple version of Battleships :D \n")
     print("  Game information")
@@ -33,56 +19,63 @@ def game_info():
     print(f"  Good luck and good hunting, Captain {captain_name}! \n")
     print("++" + "-" * 60 + "++")
 
-
-game_info()
-
-# Generates an empty board for the game.
-board = []
-
-for i in range(0, 4):
-    board.append(["0"]*4)
-
 # Function to print out game board.
-
 
 def print_board(board):
     for i in board:
         print(" ".join(i))
 
-
-print_board(board)
-
 # Function to create random row coordinate for battleship
-
 
 def row_random(board):
     return randint(0, len(board)-1)
 
 # Function to create random column coordinate for battleship
 
-
 def column_random(board):
     return randint(0, len(board)-1)
 
-
-ship_row = row_random(board)
-ship_column = column_random(board)
-
+# Function for style game condition outputs
 
 def output_style(message):
     border_dash_num = len(message)
     print("")
     print("++" + "-" * border_dash_num + "++")
-    print("  " + message)
-   
- print("++" + "-" * border_dash_num + "++")
+    print("  " + message)   
+    print("++" + "-" * border_dash_num + "++")
     print("")
 
 # Main game function
-def main()
+def main():    
+
+    # Input to prompt, validate and enter player name.
+    while True:
+        captain_name = input("Please enter your name, Captain: \n").strip()
+        if len(captain_name) < 2:
+            print(f"\nThe name '{captain_name}' is too short."
+                "Your name needs to be 2 characters or more. \n")
+            continue
+        if not captain_name.isalpha():
+            print(f"\nThe name '{captain_name}' contains none alphabetic"
+                "characters. Please enter a name containing only letters. \n")
+            continue
+        break
+    
+    game_info(captain_name)
+   
+
     # Variable to store player turns that can be updated
+    board = []
 
+    # Generates an empty board for the game.
+    for i in range(0, 4):
+        board.append(["0"]*4)
 
+    print_board(board)
+
+    ship_row = row_random(board)
+    ship_column = column_random(board)
+    
     turns = 10
 
     # While loop that handles the main game conditions
@@ -126,7 +119,7 @@ def main()
                 turns -= 1
                 if turns == 0:
                     output_style("Game over! You've run out of turns. The correct"
-                                f" coordinates were row: {ship_row} + column:"
+                                f" coordinates were row: {ship_row} & column:"
                                 f" {ship_column}.")
                     break
 
