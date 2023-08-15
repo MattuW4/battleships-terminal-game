@@ -53,17 +53,16 @@ def main():
         captain_name = input("Please enter your name, Captain: \n").strip()
         if len(captain_name) < 2:
             print(f"\nThe name '{captain_name}' is too short."
-                "Your name needs to be 2 characters or more. \n")
+                  "Your name needs to be 2 characters or more. \n")
             continue
         if not captain_name.isalpha():
             print(f"\nThe name '{captain_name}' contains none alphabetic"
-                "characters. Please enter a name containing only letters. \n")
+                  "characters. Please enter a name"
+                  " containing only letters. \n")
             continue
         break
     
     game_info(captain_name)
-   
-
     # Variable to store player turns that can be updated
     board = []
 
@@ -100,7 +99,10 @@ def main():
             else:
                 break
 
-        # Win, outside range and miss condition loops including game over stage.
+        """
+        Win, range and miss condition loops & output.
+        Game over stage output.
+        """
         if select_row == ship_row and select_column == ship_column:
             output_style("Direct hit! Game over - you win!")
             board[select_row][select_column] = "#"
@@ -111,16 +113,18 @@ def main():
                     or (select_column < 0 or select_column > 3):
                 output_style("That's not on the board! Try again...")
             elif (board[select_row][select_column] == "X"):
-                output_style("You've already tried that location! Try again...")
+                output_style("You've already tried that location!"
+                             " Try again...")
             else:
                 output_style("That's a miss... you need to improve your aim!")
                 board[select_row][select_column] = "X"
                 print("Turns remaining: " + str(turns))
                 turns -= 1
                 if turns == 0:
-                    output_style("Game over! You've run out of turns. The correct"
-                                f" coordinates were row: {ship_row} & column:"
-                                f" {ship_column}.")
+                    output_style("Game over! You've run out of turns."
+                                 " The correct"
+                                 f" coordinates were row: {ship_row} & column:"
+                                 f" {ship_column}.")
                     break
 
             print_board(board)
