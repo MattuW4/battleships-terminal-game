@@ -1,7 +1,7 @@
 # A simple battleship game.
 from random import randint
 
-# Input to prompt and enter player name.
+# Input to prompt, validate and enter player name.
 while True:
     captain_name = input("Please enter your name, Captain: \n").strip()
     if len(captain_name) < 2:
@@ -74,57 +74,61 @@ def output_style(message):
     print("")
     print("++" + "-" * border_dash_num + "++")
     print("  " + message)
-    print("++" + "-" * border_dash_num + "++")
+   
+ print("++" + "-" * border_dash_num + "++")
     print("")
 
-# Variable to store player turns that can be updated
+# Main game function
+def main()
+    # Variable to store player turns that can be updated
 
 
-turns = 10
+    turns = 10
 
-# While loop that handles the main game conditions
-while turns > 0:
-    # While loop to validate row input
-    while True:
-        try:
-            select_row = int(input("Select a row: "))
-        except ValueError:
-            output_style("Please enter a number between 0 & 3")
-            continue
-        else:
-            break
-
-    # While loop to validate column input
-    while True:
-        try:
-            select_column = int(input("Select a column: "))
-        except ValueError:
-            output_style("Please enter a number between 0 & 3")
-            continue
-        else:
-            break
-
-    # Win, outside range and miss condition loops including game over stage.
-    if select_row == ship_row and select_column == ship_column:
-        output_style("Direct hit! Game over - you win!")
-        board[select_row][select_column] = "#"
-        print_board(board)
-        break
-    else:
-        if (select_row < 0 or select_row > 3) \
-                or (select_column < 0 or select_column > 3):
-            output_style("That's not on the board! Try again...")
-        elif (board[select_row][select_column] == "X"):
-            output_style("You've already tried that location! Try again...")
-        else:
-            output_style("That's a miss... you need to improve your aim!")
-            board[select_row][select_column] = "X"
-            print("Turns remaining: " + str(turns))
-            turns -= 1
-            if turns == 0:
-                output_style("Game over! You've run out of turns. The correct"
-                             f" coordinates were row: {ship_row} + column:"
-                             f" {ship_column}.")
+    # While loop that handles the main game conditions
+    while turns > 0:
+        # While loop to validate row input
+        while True:
+            try:
+                select_row = int(input("Select a row: "))
+            except ValueError:
+                output_style("Please enter a number between 0 & 3")
+                continue
+            else:
                 break
 
-        print_board(board)
+        # While loop to validate column input
+        while True:
+            try:
+                select_column = int(input("Select a column: "))
+            except ValueError:
+                output_style("Please enter a number between 0 & 3")
+                continue
+            else:
+                break
+
+        # Win, outside range and miss condition loops including game over stage.
+        if select_row == ship_row and select_column == ship_column:
+            output_style("Direct hit! Game over - you win!")
+            board[select_row][select_column] = "#"
+            print_board(board)
+            break
+        else:
+            if (select_row < 0 or select_row > 3) \
+                    or (select_column < 0 or select_column > 3):
+                output_style("That's not on the board! Try again...")
+            elif (board[select_row][select_column] == "X"):
+                output_style("You've already tried that location! Try again...")
+            else:
+                output_style("That's a miss... you need to improve your aim!")
+                board[select_row][select_column] = "X"
+                print("Turns remaining: " + str(turns))
+                turns -= 1
+                if turns == 0:
+                    output_style("Game over! You've run out of turns. The correct"
+                                f" coordinates were row: {ship_row} + column:"
+                                f" {ship_column}.")
+                    break
+
+            print_board(board)
+main()
