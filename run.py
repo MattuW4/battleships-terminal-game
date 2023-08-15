@@ -3,6 +3,7 @@ from random import randint
 
 # Function providing game information that pulls through player name entry.
 
+
 def game_info(captain_name):
     print("++" + "-" * 60 + "++")
     print("  Welcome to this simple version of Battleships :D \n")
@@ -21,21 +22,25 @@ def game_info(captain_name):
 
 # Function to print out game board.
 
+
 def print_board(board):
     for i in board:
         print(" ".join(i))
 
 # Function to create random row coordinate for battleship
 
+
 def row_random(board):
     return randint(0, len(board)-1)
 
 # Function to create random column coordinate for battleship
 
+
 def column_random(board):
     return randint(0, len(board)-1)
 
 # Function for style game condition outputs
+
 
 def output_style(message):
     border_dash_num = len(message)
@@ -46,6 +51,8 @@ def output_style(message):
     print("")
 
 # Main game function
+
+
 def main():    
 
     # Input to prompt, validate and enter player name.
@@ -128,4 +135,6 @@ def main():
                     break
 
             print_board(board)
+
+            
 main()
