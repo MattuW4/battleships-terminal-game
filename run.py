@@ -196,15 +196,14 @@ def main():
                 print("Turns remaining: " + str(turns))
                 if turns == 0:
                     clear_screen()
-                    output_style("Game over! You've run out of turns."
-                                 f" The ship was hiding at"
-                                 f" row: {ship_row}, column: {ship_column}.")
+                    output_style("Game over! You've run out of turns.")
+                    print(f" The ship was hiding at row: {ship_row}, column: {ship_column}.")
                     break
 
             print_board(board)
 
     # If/Else loop for play again or exit
-    play_again = input("\nDo you want to play again? Enter 'y' to replay"
+    play_again = input("\n Do you want to play again? Enter 'y' to replay"
                        " or anything else to exit.\n").strip()
     clear_screen()
 
