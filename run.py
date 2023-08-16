@@ -29,7 +29,7 @@ def game_info(captain_name):
     print("++" + "-" * 60 + "++")
     print("  Welcome to this simple version of Battleships :D \n")
     print("  Game information")
-    print(f"  - The board size is {BOARD_WIDTH} x {BOARD_WIDTH}."
+    print(f"  - The board size is {BOARD_WIDTH} x {BOARD_WIDTH}.\n"
           " There is 1 enemy battleship that you are trying to hunt down.")
     print(f"  - On each turn enter a number between 0 and {BOARD_WIDTH - 1}"
           " for the row and then the column.")
