@@ -1,6 +1,12 @@
 # A simple battleship game.
 from random import randint
 
+from time import sleep
+
+import os
+
+def clear_screen():
+    os.system('cls' if os.name=='nt' else 'clear')
 # Function providing game information that pulls through player name entry.
 
 
@@ -54,6 +60,8 @@ def output_style(message):
 
 
 def main():
+
+    clear_screen()
 
     # Input to prompt, validate and enter player name.
     while True:
@@ -127,6 +135,8 @@ def main():
                 board[select_row][select_column] = "X"
                 print("Turns remaining: " + str(turns))
                 turns -= 1
+                sleep(1.5)
+                clear_screen()
                 if turns == -1:
                     output_style("Game over! You've run out of turns."
                                  " The correct"
