@@ -25,8 +25,8 @@ def game_info(captain_name):
     print("++" + "-" * 60 + "++")
     print("  Welcome to this simple version of Battleships :D \n")
     print("  Game information")
-    print(f"  - The board size is {BOARD_WIDTH} x {BOARD_WIDTH}. There is 1 enemy battleship that you"
-          " are trying to hunt down.")
+    print(f"  - The board size is {BOARD_WIDTH} x {BOARD_WIDTH}."
+          " There is 1 enemy battleship that you are trying to hunt down.")
     print(f"  - On each turn enter a number between 0 and {BOARD_WIDTH - 1}"
           " for the row and then the column.")
     print("  - Sink the enemy battleship before you use your 10 turns up! \n")
@@ -89,7 +89,7 @@ def main():
         break
     clear_screen()
     game_info(captain_name)
-    
+
     # Variable to store player turns that can be updated
     turns = NUM_ROUNDS
 
@@ -111,7 +111,8 @@ def main():
             try:
                 select_row = int(input("Select a row: "))
             except ValueError:
-                output_style(f"Please enter a number between 0 & {BOARD_WIDTH}")
+                output_style(f"Please enter a number"
+                             " between 0 & {BOARD_WIDTH}")
                 continue
             else:
                 break
@@ -121,7 +122,8 @@ def main():
             try:
                 select_column = int(input("Select a column: "))
             except ValueError:
-                output_style(f"Please enter a number between 0 & {BOARD_WIDTH}")
+                output_style(f"Please enter a number"
+                             " between 0 & {BOARD_WIDTH}")
                 continue
             else:
                 break
