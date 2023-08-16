@@ -1,4 +1,6 @@
 # A simple battleship game.
+
+# Imports for random, time and os
 from random import randint
 
 from time import sleep
