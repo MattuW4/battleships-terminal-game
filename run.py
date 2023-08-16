@@ -80,8 +80,9 @@ def main():
                   " containing only letters. \n")
             continue
         break
-
+    clear_screen()
     game_info(captain_name)
+    
     # Variable to store player turns that can be updated
     turns = 12
 
@@ -96,14 +97,8 @@ def main():
     ship_row = row_random(board)
     ship_column = column_random(board)
 
-    print("Turns remaining: " + str(turns))
-    print("*************************")
-    print("DEBUG CODE REMOVE THIS!!!")
-    print(ship_row, ship_column)
-    print("*************************")
-
     # Whle loop that handles the main game conditions
-    while turns > -1:
+    while turns > 0:
         # While loop to validate row input
         while True:
             try:
@@ -157,11 +152,11 @@ def main():
                 sleep(1.25)
                 clear_screen()
                 print("Turns remaining: " + str(turns))
-                if turns == -1:
+                if turns == 0:
+                    clear_screen()
                     output_style("Game over! You've run out of turns."
-                                 " The correct"
-                                 f" coordinates were row: {ship_row} & column:"
-                                 f" {ship_column}.")
+                                 f" The ship was hiding at"
+                                 f" row: {ship_row}, column: {ship_column}.")
                     break
 
             print_board(board)
