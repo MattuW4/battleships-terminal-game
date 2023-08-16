@@ -5,8 +5,12 @@ from time import sleep
 
 import os
 
+# Function to clear screen
+
+
 def clear_screen():
-    os.system('cls' if os.name =='nt' else 'clear')
+    os.system('cls' if os.name == 'nt' else 'clear')
+
 # Function providing game information that pulls through player name entry.
 
 
@@ -80,7 +84,7 @@ def main():
     game_info(captain_name)
     # Variable to store player turns that can be updated
     turns = 12
-    
+
     board = []
 
     # Generates an empty board for the game.
@@ -88,17 +92,15 @@ def main():
         board.append(["0"]*5)
 
     print_board(board)
-    
 
     ship_row = row_random(board)
     ship_column = column_random(board)
-    
+
     print("Turns remaining: " + str(turns))
     print("*************************")
     print("DEBUG CODE REMOVE THIS!!!")
     print(ship_row, ship_column)
     print("*************************")
-    
 
     # Whle loop that handles the main game conditions
     while turns > -1:
@@ -161,10 +163,9 @@ def main():
                                  f" coordinates were row: {ship_row} & column:"
                                  f" {ship_column}.")
                     break
-                
+
             print_board(board)
-    
-    
+
     play_again = input("Do you want to play again? Enter y to replay"
                        " or anything else to exit. \n").strip()
     clear_screen()
@@ -175,5 +176,6 @@ def main():
         output_style(f"Thank you for playing Captain {captain_name}."
                      " See you on the high seas again soon :D")
         exit()
+
 
 main()
