@@ -30,8 +30,8 @@ def game_info(captain_name):
     print("  Game information")
     print(f"  - The board size is {BOARD_WIDTH} x {BOARD_WIDTH}.\n"
           "  - There is 1 enemy battleship that you are trying to hunt down.")
-    print(f"  - On each turn enter a number between 0 and {BOARD_WIDTH - 1}"
-          " for the row and then the column.")
+    print(f"  - On each turn enter a number between 0 & {BOARD_WIDTH - 1}"
+          " for the row & column.")
     print("  - Sink the enemy battleship before you use your 10 turns up! \n")
     print("  Legend for game")
     print("  - 0 = empty space on board")
@@ -116,7 +116,6 @@ def main():
             print(f"\nThe name '{captain_name}' is too short."
                   "Your name needs to be 2 characters or more. \n")
             continue
-        clear_screen()
         if not captain_name.isalpha():
             print(f"\nThe name '{captain_name}' contains none alphabetic"
                   " characters. Please enter a name"
