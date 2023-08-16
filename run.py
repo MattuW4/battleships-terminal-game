@@ -182,20 +182,20 @@ def main():
             if (select_row < 0 or select_row >= BOARD_WIDTH) \
                     or (select_column < 0 or select_column >= BOARD_WIDTH):
                 output_style("That's not on the board! Try again...")
-                sleep(1.1)
+                sleep(1)
                 clear_screen()
                 print("Turns remaining: " + str(turns))
             elif (board[select_row][select_column] == "X"):
                 output_style("You've already tried that location!"
                              " Try again...")
-                sleep(1.1)
+                sleep(1)
                 clear_screen()
                 print("Turns remaining: " + str(turns))
             else:
                 output_style("That's a miss... you need to improve your aim!")
                 board[select_row][select_column] = "X"
                 turns -= 1
-                sleep(1.1)
+                sleep(1)
                 clear_screen()
                 print("Turns remaining: " + str(turns))
                 if turns == 0:
@@ -208,7 +208,7 @@ def main():
             print_board(board)
 
     # If/Else loop for play again or exit
-    play_again = input("Do you want to play again? Enter y to replay"
+    play_again = input("\n Do you want to play again? Enter y to replay"
                        " or anything else to exit. \n").strip()
     clear_screen()
 
