@@ -6,7 +6,7 @@ from time import sleep
 import os
 
 def clear_screen():
-    os.system('cls' if os.name=='nt' else 'clear')
+    os.system('cls' if os.name =='nt' else 'clear')
 # Function providing game information that pulls through player name entry.
 
 
@@ -79,6 +79,8 @@ def main():
 
     game_info(captain_name)
     # Variable to store player turns that can be updated
+    turns = 12
+    
     board = []
 
     # Generates an empty board for the game.
@@ -86,11 +88,17 @@ def main():
         board.append(["0"]*5)
 
     print_board(board)
+    
 
     ship_row = row_random(board)
     ship_column = column_random(board)
-
-    turns = 12
+    
+    print("Turns remaining: " + str(turns))
+    print("*************************")
+    print("DEBUG CODE REMOVE THIS!!!")
+    print(ship_row, ship_column)
+    print("*************************")
+    
 
     # Whle loop that handles the main game conditions
     while turns > -1:
@@ -119,7 +127,11 @@ def main():
         Game over stage output.
         """
         if select_row == ship_row and select_column == ship_column:
-            output_style("Direct hit! Game over - you win!")
+            clear_screen()
+            output_style("Direct hit! The ship was located at"
+                         f" row: {ship_row}, column:"
+                         f" {ship_column}. You had {turns}"
+                         f" turns remaining. Game over - you win :D")
             board[select_row][select_column] = "#"
             print_board(board)
             break
@@ -129,18 +141,20 @@ def main():
                 output_style("That's not on the board! Try again...")
                 sleep(1.25)
                 clear_screen()
+                print("Turns remaining: " + str(turns))
             elif (board[select_row][select_column] == "X"):
                 output_style("You've already tried that location!"
                              " Try again...")
                 sleep(1.25)
                 clear_screen()
+                print("Turns remaining: " + str(turns))
             else:
                 output_style("That's a miss... you need to improve your aim!")
                 board[select_row][select_column] = "X"
-                print("Turns remaining: " + str(turns))
                 turns -= 1
                 sleep(1.25)
                 clear_screen()
+                print("Turns remaining: " + str(turns))
                 if turns == -1:
                     output_style("Game over! You've run out of turns."
                                  " The correct"
@@ -150,8 +164,7 @@ def main():
                 
             print_board(board)
     
-    sleep(2)
-    clear_screen()
+    
     play_again = input("Do you want to play again? Enter y to replay"
                        " or anything else to exit. \n").strip()
     clear_screen()
