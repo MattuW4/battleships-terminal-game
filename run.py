@@ -146,29 +146,29 @@ def main():
 
     # While loop for main game conditions
     while turns > 0:
-        # While loop to validate row input
+        # While loop to validate row input for integer
         while True:
             try:
                 select_row = int(input("Select a row: "))
             except ValueError:
-                output_style(f"Please enter a number"
-                             " between 0 & {BOARD_WIDTH}")
+                output_style(f"Please enter a whole number"
+                             f" between 0 & {BOARD_WIDTH}")
                 continue
             else:
                 break
 
-        # While loop to validate column input
+        # While loop to validate column input for integer
         while True:
             try:
                 select_column = int(input("Select a column: "))
             except ValueError:
-                output_style(f"Please enter a number"
-                             " between 0 & {BOARD_WIDTH}")
+                output_style(f"Please enter a whole number"
+                             f" between 0 & {BOARD_WIDTH}")
                 continue
             else:
                 break
 
-        # If/else loop to determine hit, out of, miss or game over
+        # If/else loop to determine hit, out of range, miss or game over
         if select_row == ship_row and select_column == ship_column:
             clear_screen()
             output_style("Direct hit! The ship was located at"
