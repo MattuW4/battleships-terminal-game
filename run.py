@@ -127,19 +127,19 @@ def main():
             if (select_row < 0 or select_row > 4) \
                     or (select_column < 0 or select_column > 4):
                 output_style("That's not on the board! Try again...")
-                sleep(1.5)
+                sleep(1.25)
                 clear_screen()
             elif (board[select_row][select_column] == "X"):
                 output_style("You've already tried that location!"
                              " Try again...")
-                sleep(1.5)
+                sleep(1.25)
                 clear_screen()
             else:
                 output_style("That's a miss... you need to improve your aim!")
                 board[select_row][select_column] = "X"
                 print("Turns remaining: " + str(turns))
                 turns -= 1
-                sleep(1.5)
+                sleep(1.25)
                 clear_screen()
                 if turns == -1:
                     output_style("Game over! You've run out of turns."
@@ -147,8 +147,20 @@ def main():
                                  f" coordinates were row: {ship_row} & column:"
                                  f" {ship_column}.")
                     break
-
+                
             print_board(board)
+    
+    sleep(2)
+    clear_screen()
+    play_again = input("Do you want to play again? Enter y to replay"
+                       " or anything else to exit. \n").strip()
+    clear_screen()
 
+    if play_again.lower() == "y":
+        main()
+    else:
+        output_style(f"Thank you for playing Captain {captain_name}."
+                     " See you on the high seas again soon :D")
+        exit()
 
 main()
