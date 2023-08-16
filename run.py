@@ -8,7 +8,7 @@ def game_info(captain_name):
     print("++" + "-" * 60 + "++")
     print("  Welcome to this simple version of Battleships :D \n")
     print("  Game information")
-    print("  - The board size is 4 x 4. There is 1 enemy battleship that you"
+    print("  - The board size is 5 x 5. There is 1 enemy battleship that you"
           " are trying to hunt down.")
     print("  - On each turn enter a number between 0 and 3"
           " for the row and then the column.")
@@ -46,14 +46,14 @@ def output_style(message):
     border_dash_num = len(message)
     print("")
     print("++" + "-" * border_dash_num + "++")
-    print("  " + message)   
+    print("  " + message)
     print("++" + "-" * border_dash_num + "++")
     print("")
 
 # Main game function
 
 
-def main():    
+def main():
 
     # Input to prompt, validate and enter player name.
     while True:
@@ -64,34 +64,34 @@ def main():
             continue
         if not captain_name.isalpha():
             print(f"\nThe name '{captain_name}' contains none alphabetic"
-                  "characters. Please enter a name"
+                  " characters. Please enter a name"
                   " containing only letters. \n")
             continue
         break
-    
+
     game_info(captain_name)
     # Variable to store player turns that can be updated
     board = []
 
     # Generates an empty board for the game.
-    for i in range(0, 4):
-        board.append(["0"]*4)
+    for _ in range(0, 5):
+        board.append(["0"]*5)
 
     print_board(board)
 
     ship_row = row_random(board)
     ship_column = column_random(board)
-    
-    turns = 10
 
-    # While loop that handles the main game conditions
-    while turns > 0:
+    turns = 12
+
+    # Whle loop that handles the main game conditions
+    while turns > -1:
         # While loop to validate row input
         while True:
             try:
                 select_row = int(input("Select a row: "))
             except ValueError:
-                output_style("Please enter a number between 0 & 3")
+                output_style("Please enter a number between 0 & 4")
                 continue
             else:
                 break
@@ -101,7 +101,7 @@ def main():
             try:
                 select_column = int(input("Select a column: "))
             except ValueError:
-                output_style("Please enter a number between 0 & 3")
+                output_style("Please enter a number between 0 & 4")
                 continue
             else:
                 break
@@ -116,8 +116,8 @@ def main():
             print_board(board)
             break
         else:
-            if (select_row < 0 or select_row > 3) \
-                    or (select_column < 0 or select_column > 3):
+            if (select_row < 0 or select_row > 4) \
+                    or (select_column < 0 or select_column > 4):
                 output_style("That's not on the board! Try again...")
             elif (board[select_row][select_column] == "X"):
                 output_style("You've already tried that location!"
@@ -127,7 +127,7 @@ def main():
                 board[select_row][select_column] = "X"
                 print("Turns remaining: " + str(turns))
                 turns -= 1
-                if turns == 0:
+                if turns == -1:
                     output_style("Game over! You've run out of turns."
                                  " The correct"
                                  f" coordinates were row: {ship_row} & column:"
@@ -136,5 +136,5 @@ def main():
 
             print_board(board)
 
-            
+
 main()
