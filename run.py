@@ -26,11 +26,11 @@ def game_info(captain_name):
         Returns:
             Prints to terminal the game information section.
     """
-    print("++" + "-" * 60 + "++")
+    print("++" + "-" * 76 + "++")
     print("  Welcome to this simple version of Battleships :D \n")
     print("  Game information")
     print(f"  - The board size is {BOARD_WIDTH} x {BOARD_WIDTH}.\n"
-          " There is 1 enemy battleship that you are trying to hunt down.")
+          "  - There is 1 enemy battleship that you are trying to hunt down.")
     print(f"  - On each turn enter a number between 0 and {BOARD_WIDTH - 1}"
           " for the row and then the column.")
     print("  - Sink the enemy battleship before you use your 10 turns up! \n")
@@ -39,7 +39,7 @@ def game_info(captain_name):
     print("  - X = location of a missed shot on board")
     print("  - # = direct hit of the enemey ship \n")
     print(f"  Good luck and good hunting, Captain {captain_name}! \n")
-    print("++" + "-" * 60 + "++")
+    print("++" + "-" * 76 + "++")
 
 
 def print_board(board):
@@ -167,10 +167,10 @@ def main():
         # If/else loop to determine hit, out of range, miss or game over
         if select_row == ship_row and select_column == ship_column:
             clear_screen()
-            output_style("Direct hit! The ship was located at"
-                         f" row: {ship_row}, column:"
-                         f" {ship_column}. You had {turns}"
-                         f" turns remaining. Game over - you win :D")
+            output_style("Direct hit!Game over - you win :D")
+            print(f" - The ship's location was row: {ship_row},"
+                  f" column: {ship_column}.\n"
+                  f" - You had {turns} turns remaining.\n")
             board[select_row][select_column] = "#"
             print_board(board)
             break
@@ -204,7 +204,7 @@ def main():
             print_board(board)
 
     # If/Else loop for play again or exit
-    play_again = input("\n Do you want to play again? Enter 'y' to replay"
+    play_again = input("\nDo you want to play again? Enter 'y' to replay"
                        " or anything else to exit.\n").strip()
     clear_screen()
 
