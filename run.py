@@ -47,7 +47,6 @@ def print_board(board):
     Function to print out game board.
         Paramaters:
             Takes in board generation.
-
         Returns:
             Prints game board to terminal.
     """
@@ -60,7 +59,6 @@ def row_random(board):
     Function to create random row coordinate for battleship.
         Paramaters:
             Takes in board generation.
-
         Returns:
             Random coordinate for row location.
     """
@@ -72,7 +70,6 @@ def column_random(board):
     Function to create random column coordinate for battleship.
         Paramaters:
             Takes in board generation.
-
         Returns:
             Random coordinate for column location.
     """
@@ -84,7 +81,6 @@ def output_style(message):
     Function to style game condition outputs.
         Parameters:
             Takes in message content to print.
-
         Returns:
             Prints out styling around outputs.
     """
@@ -114,7 +110,7 @@ def main():
 
     # While loop to validate name input
     while True:
-        captain_name = input("Please enter your name, Captain: \n").strip()
+        captain_name = input("Please enter your name, Captain:\n").strip()
         if len(captain_name) < 2:
             print(f"\nThe name '{captain_name}' is too short."
                   "Your name needs to be 2 characters or more. \n")
@@ -149,7 +145,7 @@ def main():
         # While loop to validate row input for integer
         while True:
             try:
-                select_row = int(input("Select a row: "))
+                select_row = int(input("Select a row:\n"))
             except ValueError:
                 output_style(f"Please enter a whole number"
                              f" between 0 & {BOARD_WIDTH}")
@@ -160,7 +156,7 @@ def main():
         # While loop to validate column input for integer
         while True:
             try:
-                select_column = int(input("Select a column: "))
+                select_column = int(input("Select a column:\n"))
             except ValueError:
                 output_style(f"Please enter a whole number"
                              f" between 0 & {BOARD_WIDTH}")
@@ -209,7 +205,7 @@ def main():
 
     # If/Else loop for play again or exit
     play_again = input("\n Do you want to play again? Enter 'y' to replay"
-                       " or anything else to exit. \n").strip()
+                       " or anything else to exit.\n").strip()
     clear_screen()
 
     if play_again.lower() == "y":
