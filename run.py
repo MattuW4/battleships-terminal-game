@@ -1,4 +1,4 @@
-# A simple battleship game.
+# A simple terminal battleship game.
 
 # Imports for random, time and os
 from random import randint
@@ -6,6 +6,11 @@ from random import randint
 from time import sleep
 
 import os
+
+# Number of rounds the game should run.
+NUM_ROUNDS = 12
+# Board is a square grid of BOARD_WIDTH x BOARD_WIDTH cells.
+BOARD_WIDTH = 5
 
 # Function to clear screen
 
@@ -20,9 +25,9 @@ def game_info(captain_name):
     print("++" + "-" * 60 + "++")
     print("  Welcome to this simple version of Battleships :D \n")
     print("  Game information")
-    print("  - The board size is 5 x 5. There is 1 enemy battleship that you"
+    print(f"  - The board size is {BOARD_WIDTH} x {BOARD_WIDTH}. There is 1 enemy battleship that you"
           " are trying to hunt down.")
-    print("  - On each turn enter a number between 0 and 3"
+    print(f"  - On each turn enter a number between 0 and {BOARD_WIDTH - 1}"
           " for the row and then the column.")
     print("  - Sink the enemy battleship before you use your 10 turns up! \n")
     print("  Legend for game")
@@ -86,13 +91,13 @@ def main():
     game_info(captain_name)
     
     # Variable to store player turns that can be updated
-    turns = 12
+    turns = NUM_ROUNDS
 
     board = []
 
     # Generates an empty board for the game.
-    for _ in range(0, 5):
-        board.append(["0"]*5)
+    for _ in range(0, BOARD_WIDTH):
+        board.append(["0"] * BOARD_WIDTH)
 
     print_board(board)
 
@@ -106,7 +111,7 @@ def main():
             try:
                 select_row = int(input("Select a row: "))
             except ValueError:
-                output_style("Please enter a number between 0 & 4")
+                output_style(f"Please enter a number between 0 & {BOARD_WIDTH}")
                 continue
             else:
                 break
@@ -116,7 +121,7 @@ def main():
             try:
                 select_column = int(input("Select a column: "))
             except ValueError:
-                output_style("Please enter a number between 0 & 4")
+                output_style(f"Please enter a number between 0 & {BOARD_WIDTH}")
                 continue
             else:
                 break
@@ -135,8 +140,8 @@ def main():
             print_board(board)
             break
         else:
-            if (select_row < 0 or select_row > 4) \
-                    or (select_column < 0 or select_column > 4):
+            if (select_row < 0 or select_row >= BOARD_WIDTH) \
+                    or (select_column < 0 or select_column >= BOARD_WIDTH):
                 output_style("That's not on the board! Try again...")
                 sleep(1.25)
                 clear_screen()
