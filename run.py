@@ -127,9 +127,13 @@ def main():
             if (select_row < 0 or select_row > 4) \
                     or (select_column < 0 or select_column > 4):
                 output_style("That's not on the board! Try again...")
+                sleep(1.5)
+                clear_screen()
             elif (board[select_row][select_column] == "X"):
                 output_style("You've already tried that location!"
                              " Try again...")
+                sleep(1.5)
+                clear_screen()
             else:
                 output_style("That's a miss... you need to improve your aim!")
                 board[select_row][select_column] = "X"
