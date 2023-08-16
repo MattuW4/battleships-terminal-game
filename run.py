@@ -7,7 +7,6 @@ import os
 
 # Number of rounds the game should run.
 NUM_ROUNDS = 12
-
 # Board is a square grid of BOARD_WIDTH x BOARD_WIDTH cells.
 BOARD_WIDTH = 5
 
@@ -93,6 +92,7 @@ def output_style(message):
 
 
 def main():
+    
     """
     Main game function that runs the main game.
     Parameters:
@@ -107,7 +107,8 @@ def main():
     - win, range and miss condition loops & outputs;
     - game over stage output;
     """
-
+    clear_screen()
+    
     # While loop to validate name input
     while True:
         captain_name = input("Please enter your name, Captain:\n").strip()
@@ -122,7 +123,7 @@ def main():
                   " containing only letters. \n")
             continue
         break
-
+    clear_screen()        
     game_info(captain_name)
 
     # Variables to store rounds and board
