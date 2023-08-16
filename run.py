@@ -111,7 +111,6 @@ def main():
     - win, range and miss condition loops & outputs;
     - game over stage output;
     """
-    clear_screen()
 
     # While loop to validate name input
     while True:
@@ -120,13 +119,14 @@ def main():
             print(f"\nThe name '{captain_name}' is too short."
                   "Your name needs to be 2 characters or more. \n")
             continue
+        clear_screen()
         if not captain_name.isalpha():
             print(f"\nThe name '{captain_name}' contains none alphabetic"
                   " characters. Please enter a name"
                   " containing only letters. \n")
             continue
         break
-    clear_screen()
+
     game_info(captain_name)
 
     # Variables to store rounds and board
@@ -208,7 +208,7 @@ def main():
             print_board(board)
 
     # If/Else loop for play again or exit
-    play_again = input("\n Do you want to play again? Enter y to replay"
+    play_again = input("\n Do you want to play again? Enter 'y' to replay"
                        " or anything else to exit. \n").strip()
     clear_screen()
 
