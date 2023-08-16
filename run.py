@@ -13,7 +13,7 @@ BOARD_WIDTH = 5
 
 def clear_screen():
     """Utility function to clear screen."""
-    os.system('cls' if os.name == 'nt' else 'clear')
+    print('\033c')
 
 
 def game_info(captain_name):
