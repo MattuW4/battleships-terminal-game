@@ -2,26 +2,27 @@
 
 # Imports for random, time and os
 from random import randint
-
 from time import sleep
-
 import os
 
 # Number of rounds the game should run.
 NUM_ROUNDS = 12
+
 # Board is a square grid of BOARD_WIDTH x BOARD_WIDTH cells.
 BOARD_WIDTH = 5
 
-# Function to clear screen
-
 
 def clear_screen():
+    """Utility function to clear screen."""
     os.system('cls' if os.name == 'nt' else 'clear')
-
-# Function providing game information that pulls through player name entry.
 
 
 def game_info(captain_name):
+    """
+    Function to create game information section.
+    Takes in board width global variable and captain name.
+    When called, function prints to terminal the game information section.
+    """
     print("++" + "-" * 60 + "++")
     print("  Welcome to this simple version of Battleships :D \n")
     print("  Game information")
@@ -37,29 +38,37 @@ def game_info(captain_name):
     print(f"  Good luck and good hunting, Captain {captain_name}! \n")
     print("++" + "-" * 60 + "++")
 
-# Function to print out game board.
-
 
 def print_board(board):
+    """
+    Function to print out game board.
+    When called, function prints game board to terminal.
+    """
     for i in board:
         print(" ".join(i))
 
-# Function to create random row coordinate for battleship
-
 
 def row_random(board):
+    """
+    Function to create random row coordinate for battleship.
+    Function returns random coordinate for row location.
+    """
     return randint(0, len(board)-1)
-
-# Function to create random column coordinate for battleship
 
 
 def column_random(board):
+    """
+    Function to create random column coordinate for battleship.
+    Function returns random coordinate for column location.
+    """
     return randint(0, len(board)-1)
-
-# Function for style game condition outputs
 
 
 def output_style(message):
+    """
+    Function to style game condition outputs.
+    When called, this function prints out styling around outputs.
+    """
     border_dash_num = len(message)
     print("")
     print("++" + "-" * border_dash_num + "++")
@@ -67,14 +76,23 @@ def output_style(message):
     print("++" + "-" * border_dash_num + "++")
     print("")
 
-# Main game function
-
 
 def main():
-
+    """
+    Main game function that runs the main game.
+    This contains:
+    - while loops to validate row & column input;
+    - local variable to store round numbers in;
+    - for loop to generate empty board for the game;
+    - variables to store random row & column of ship location;
+    - while loop to run main game conditions;
+    - while loop to validate row & column input;
+    - win, range and miss condition loops & outputs;
+    - game over stage output;
+    - play again input & exit option;
+    """
     clear_screen()
 
-    # Input to prompt, validate and enter player name.
     while True:
         captain_name = input("Please enter your name, Captain: \n").strip()
         if len(captain_name) < 2:
@@ -90,12 +108,10 @@ def main():
     clear_screen()
     game_info(captain_name)
 
-    # Variable to store player turns that can be updated
     turns = NUM_ROUNDS
 
     board = []
 
-    # Generates an empty board for the game.
     for _ in range(0, BOARD_WIDTH):
         board.append(["0"] * BOARD_WIDTH)
 
@@ -104,9 +120,7 @@ def main():
     ship_row = row_random(board)
     ship_column = column_random(board)
 
-    # Whle loop that handles the main game conditions
     while turns > 0:
-        # While loop to validate row input
         while True:
             try:
                 select_row = int(input("Select a row: "))
@@ -117,7 +131,6 @@ def main():
             else:
                 break
 
-        # While loop to validate column input
         while True:
             try:
                 select_column = int(input("Select a column: "))
@@ -128,10 +141,6 @@ def main():
             else:
                 break
 
-        """
-        Win, range and miss condition loops & output.
-        Game over stage output.
-        """
         if select_row == ship_row and select_column == ship_column:
             clear_screen()
             output_style("Direct hit! The ship was located at"
@@ -145,20 +154,20 @@ def main():
             if (select_row < 0 or select_row >= BOARD_WIDTH) \
                     or (select_column < 0 or select_column >= BOARD_WIDTH):
                 output_style("That's not on the board! Try again...")
-                sleep(1.25)
+                sleep(1.1)
                 clear_screen()
                 print("Turns remaining: " + str(turns))
             elif (board[select_row][select_column] == "X"):
                 output_style("You've already tried that location!"
                              " Try again...")
-                sleep(1.25)
+                sleep(1.1)
                 clear_screen()
                 print("Turns remaining: " + str(turns))
             else:
                 output_style("That's a miss... you need to improve your aim!")
                 board[select_row][select_column] = "X"
                 turns -= 1
-                sleep(1.25)
+                sleep(1.1)
                 clear_screen()
                 print("Turns remaining: " + str(turns))
                 if turns == 0:
