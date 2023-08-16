@@ -20,8 +20,11 @@ def clear_screen():
 def game_info(captain_name):
     """
     Function to create game information section.
-    Takes in board width global variable and captain name.
-    When called, function prints to terminal the game information section.
+        Parameter:
+            Takes in board width global variable and captain name.
+
+        Returns:
+            Prints to terminal the game information section.
     """
     print("++" + "-" * 60 + "++")
     print("  Welcome to this simple version of Battleships :D \n")
@@ -42,7 +45,11 @@ def game_info(captain_name):
 def print_board(board):
     """
     Function to print out game board.
-    When called, function prints game board to terminal.
+        Paramaters:
+            Takes in board generation.
+
+        Returns:
+            Prints game board to terminal.
     """
     for i in board:
         print(" ".join(i))
@@ -51,7 +58,11 @@ def print_board(board):
 def row_random(board):
     """
     Function to create random row coordinate for battleship.
-    Function returns random coordinate for row location.
+        Paramaters:
+            Takes in board generation.
+
+        Returns:
+            Random coordinate for row location.
     """
     return randint(0, len(board)-1)
 
@@ -59,7 +70,11 @@ def row_random(board):
 def column_random(board):
     """
     Function to create random column coordinate for battleship.
-    Function returns random coordinate for column location.
+        Paramaters:
+            Takes in board generation.
+
+        Returns:
+            Random coordinate for column location.
     """
     return randint(0, len(board)-1)
 
@@ -67,7 +82,11 @@ def column_random(board):
 def output_style(message):
     """
     Function to style game condition outputs.
-    When called, this function prints out styling around outputs.
+        Parameters:
+            Takes in message content to print.
+
+        Returns:
+            Prints out styling around outputs.
     """
     border_dash_num = len(message)
     print("")
@@ -80,19 +99,21 @@ def output_style(message):
 def main():
     """
     Main game function that runs the main game.
-    This contains:
+    Parameters:
     - while loops to validate row & column input;
     - local variable to store round numbers in;
     - for loop to generate empty board for the game;
     - variables to store random row & column of ship location;
     - while loop to run main game conditions;
     - while loop to validate row & column input;
+    - play again input & exit option;
+    Returns:
     - win, range and miss condition loops & outputs;
     - game over stage output;
-    - play again input & exit option;
     """
     clear_screen()
 
+    # While loop to validate name input
     while True:
         captain_name = input("Please enter your name, Captain: \n").strip()
         if len(captain_name) < 2:
@@ -108,19 +129,24 @@ def main():
     clear_screen()
     game_info(captain_name)
 
+    # Variables to store rounds and board
     turns = NUM_ROUNDS
 
     board = []
 
+    # For loop to generate board
     for _ in range(0, BOARD_WIDTH):
         board.append(["0"] * BOARD_WIDTH)
 
     print_board(board)
 
+    # Variables calling random row & column functions
     ship_row = row_random(board)
     ship_column = column_random(board)
 
+    # While loop for main game conditions
     while turns > 0:
+        # While loop to validate row input
         while True:
             try:
                 select_row = int(input("Select a row: "))
@@ -131,6 +157,7 @@ def main():
             else:
                 break
 
+        # While loop to validate column input
         while True:
             try:
                 select_column = int(input("Select a column: "))
@@ -141,6 +168,7 @@ def main():
             else:
                 break
 
+        # If/else loop to determine hit, out of, miss or game over
         if select_row == ship_row and select_column == ship_column:
             clear_screen()
             output_style("Direct hit! The ship was located at"
@@ -179,6 +207,7 @@ def main():
 
             print_board(board)
 
+    # If/Else loop for play again or exit
     play_again = input("Do you want to play again? Enter y to replay"
                        " or anything else to exit. \n").strip()
     clear_screen()
@@ -191,4 +220,5 @@ def main():
         exit()
 
 
+# Execute main function
 main()
