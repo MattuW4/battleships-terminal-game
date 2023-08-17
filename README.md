@@ -8,7 +8,7 @@ This is a web game engineered using Python and deployed via Heroku in which the 
 
 Battleship is a strategy type guessing game for up to two players. It is ordinarily played on ruled grids  where each player's fleet of battleships are marked. There are player vs player or player vs computer versions with varying degrees of difficulty that are informed by number of ships, board size, number of turns or other factors. The locations of the ships are concealed from the other player. Players alternate turns by selecting coordinates in an attempt to hit another player's ships, and the objective of the game is to destroy all of the opposing player's ships. Battleship was originally paper game which dates from World War I and published in the 1930s. In 1967 is was released as a plastic board game by Milton Bradley before making the transition to digital formats later in the century. More information on Battleships can be found [here on Wikipedia](https://en.wikipedia.org/wiki/Battleship_(game)).
 
-![Mockup](documentation/responsive.png)
+![Responsive](documentation/responsive.png)
 
 ## User Experience(UX)
 
@@ -104,6 +104,8 @@ A flowchart model developed on [Lucid chart](https://www.lucidchart.com/pages/) 
 ### Model
 
 The model employed was based on procedural functions to request, handle, validate and return data from the player the triggers subsequent sequences of the game stages. The functions are called within the main game function, where while and if else loops are used to validate input data and update stages of the game, including outputs. As each function is executed this either returns information or prints and updates elements within the terminal. 
+
+The python adheres to the standards set in [Python Enhanced Proposals](https://peps.python.org/pep-0008/#introduction).
 
 ## Technologies employed
 
