@@ -1,7 +1,7 @@
 # A Simple Terminal Based Battleship Application
 
-[View the live project here](https://simple-battleship-game-59e68049f437.herokuapp.com/)
-[View the GitHub repo here](https://mattuw4.github.io/battleships-terminal-game/)
+- [View the live project here](https://simple-battleship-game-59e68049f437.herokuapp.com/)
+- [View the GitHub repo here](https://mattuw4.github.io/battleships-terminal-game/)
 
 ## Project overview
 
