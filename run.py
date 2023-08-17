@@ -92,7 +92,7 @@ def output_style(message):
 
 
 def main():
-    
+
     """
     Main game function that runs the main game.
     Parameters:
@@ -108,7 +108,7 @@ def main():
     - game over stage output;
     """
     clear_screen()
-    
+
     # While loop to validate name input
     while True:
         captain_name = input("Please enter your name, Captain:\n").strip()
@@ -122,7 +122,7 @@ def main():
                   " containing only letters. \n")
             continue
         break
-    clear_screen()        
+    clear_screen()
     game_info(captain_name)
 
     # Variables to store rounds and board
@@ -197,7 +197,8 @@ def main():
                 if turns == 0:
                     clear_screen()
                     output_style("Game over! You've run out of turns.")
-                    print(f" The ship was hiding at row: {ship_row}, column: {ship_column}.")
+                    print(f" The ship was hiding at row: {ship_row},"
+                          f" column: {ship_column}.")
                     break
 
             print_board(board)
