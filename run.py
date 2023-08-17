@@ -168,7 +168,7 @@ def main():
         # If/else loop to determine hit, out of range, miss or game over
         if select_row == ship_row and select_column == ship_column:
             clear_screen()
-            output_style("Direct hit!Game over - you win :D")
+            output_style("Direct hit! Game over - you win :D")
             print(f" - The ship's location was row: {ship_row},"
                   f" column: {ship_column}.\n"
                   f" - You had {turns} turns remaining.\n")

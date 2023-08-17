@@ -33,62 +33,50 @@ Battleship is a strategy type guessing game for up to two players. It is ordinar
 
 - F01, F02 Load out and player name selection
 
-This is the app loadout where a player will be initially oriented to. Once the app runs the player is prompted to enter a name from a nautical themed prompt (player is referred to as 'Captain' to improve UX.) There is also input validation for the user name that prompts the user to only enter a name made up of alphabetic characters (i.e. no numbers or special characters) as well as ensuring that their name is 2 or more charcters in lenght.
+This is the app loadout where a player will be initially oriented to. Once the app runs the player is prompted to enter a name from a nautical themed prompt (player is referred to as 'Captain' to improve UX.) There is also input validation for the user name that prompts the user to only enter a name made up of alphabetic characters (i.e. no numbers or special characters) as well as ensuring that their name is 2 or more charcters in length.
 
-![Landing page](documentation/f01-player-name.png)
-![Landing page](documentation/f02-player-validation.png)
+![Landing page/player input](documentation/f01-player-name.png)
+![Player input validation](documentation/f02-player-validation.png)
 
 - F02 Welcome & main game information screen
 
 Here the player is welcomed in an again nautical stylised manner. They are informed of the game rules and how to play the game. There is also a legend to inform as what the symbols represent within the game. The player's name is passed through from the initial input stage and referred to in the welcome loadout as 'Captain X', so as to again provide a contextualised UX. A blank board is shown to the player which is where the computer's ship will be hidden and the player has to guess. The border is styled to frame the information and make the welcome page more appealing.
 
-![Header](documentation/f02-header.png)
+![Welcome and game information](documentation/f03-game-info.png)
 
-- F03 & F12 Weapon choice & button hover
+- F04, F05 & F06 Selection input, validation, turn and board update
 
-The weapon choice section lays out 3 buttons for the player to choose an option from. The buttons are interactive when hovered over. They trigger the game to run a computer selection to be made. Whilst a feature of all the buttons, here we demonstrate how the user can interact with them further as the buttons across the site have a range of features that increase their size, change their colour or underline them. The weapon choice, refresh and help button also have a title that appears when the user hovers over them for more clarity on what they do. All buttons are accessible with the aria-label tag.
+The player is prompted to make a selection of the row to take their turn followed by selection of a column. The player must enter a number between 0 and 4 respectively. Validation takes place to ensure that the player enters a number with an error messaged displayed if this is not the case. If the entries are validated and other conditions are not met (repeat/not within range) then the board updates with an 'X' to show the coordinate selected and the number of turns counter is reduced by 1. Turns only decrease on correct selections, not when the same entry is made or a selection out of range. The display resets (referred to later in the feature section and then the player is prompted to enter a new row and column selection.)
 
-![Weapon choice section](documentation/f03-weapon-choice.png)
+![Selection input and row validation](documentation/f04-row-input-validation.png)
 
-![Buttons and features](documentation/f12-large-and-hover.png)
+![Buttons and features](documentation/f05-col-input-validation.png)
 
-- F04 Arena and result sections
+![Score and board update](documentation/f06-score-board-update.png)
 
-The arena section is set out to clearly show the player and computer choice once selected for each round. The outcome is highlighted by an inset border box that draws the users' attention. As each round progresses the choices made are updated, as is the outcome when the player and computer choices are compared in JavaScript.
+- F07, F08 & F09 Miss, out of range and same selection output
 
-The result section is similarly set out with outputs that update the player and computer score. The rounds are also updated so that the player can track how many turns have been taken in their battle against the computer. The player score is underlined for better UX experience as it allows the player to always be able to immediately orientate to their score in the battle. The layouts are intended to provide the information in a accessible way that does not distract or disorientate the player.
+If the player's selection is validated within range (previous feature) but it does not hit the hidden ship coordinate then this is registered as a miss and an 'X' is marked on the board. The number of turns remaining is updated to decrease by 1. The message is timed to display before clearing and the game view resetting for the next player turn. The player selection is also validated as to whether it is between 0 and 4 as this is the indexing of the 5 x 5 board grid. If the selection is a negative number or greater than 4 then the 'out of range' output is displayed and the player is prompted to try another selection. The output is timed to display before clearing and the board resetting. If the player makes the same coordinate selection more than once then validation of the input triggers an output to inform them of this occurence. The output is time to display and then clear to reset the game view for the next turn. The 'turns remaining' are not updated in either instance where a player makes the same or out of range selection. The outputs are given a jovial, nautical theme to improve UX and keep the player challenged whilst not frustrating them.
 
-![Arena and results section](documentation/f04-arena-and-result.png)
+![Miss output](documentation/f07-miss-output.png)
 
-- F05 Footer
+![Out of range output](documentation/f08-out-of-range.png)
 
-The footer is located at the bottom of the landing page view and allows the user to explore the developer's other projects if they are interested after playing the game. Whilst not directly contributing to the game itself, this adds an extra UX element as it connects the game to a wider menu of offers that the user might be interested in exploring. The embedded link is styled to indicate when hovered over.
+![Same target](documentation/f09-same-target.png)
 
-![Games](documentation/f05-footer.png)
+- F10 Computer ship sunk and replay option
 
-- F06 Help modal
+If the player guesses the correct row and column location of the computer ship within the assigned number of turns and this is not a repeat or out of range selection then the player wins and the game loop breaks. An output to indicate that the player has won is shown, pulling through the ship location and number of turns remaining to provide some game statistics for the player if they wanted to challenge themselves in the future (replayability and UX consideration). A message prompt is displayed asking the player if they wish to play again (by entering y that is set to not be case sensitive) or if they wish to quit (pressing any other button). Selecting play again clears the terminal and resets the game, prompting the player to enter their name again and restarting the main game function. If they elect to quit then the game exits and closes within the terminal. A message is displayed in a jovial, nautical style if the player exits to thank them for playing and indicate that the game is ending. The exit message pulls through the players name to improve engagement and UX.
 
-The help modal is accessed through the button in the header. It contains some information about the background to the game that aims to speak directly to the user. Whilst the user might be familiar with the game they may want some additional information so there is also a legend included showing the different hands that can be played. The modal contains this information as it might clutter the landing page and it is assumed that the majority of users would be immediately familiar with the concept of the game so having this in a more prominent location on the site might be superfluous. The button at the bottom of the modal returns the user to the landing page to play the game. The modal can be accessed at any point during the game.
+![Computer ship sunk and replay option](documentation/f10-direct-replay.png)
 
-![Hero booking image](documentation/f06-help-modal.png)
+![Game exit output](documentation/f11-exit.png)
 
-- F07, F08, F09 Player wins, computer wins and draw
+- F12 Game over/loss output
 
-These screens show when the player has won a hand, the computer has won a hand, or when the hand is a draw. The outcomes are outputted in the outcome section. The respective scores are updated, as well as the round score. Only the round score is updated in the event of a draw.
+If the player is not able to correctly select the computer ship within the 12 turns and the turn counter runs down to zero then they have lost the game and the computer has one. The game displays an output to indicate this and pulls through the correct coordinates of the ship for better UX and continued engagement so that they can understand their choices made. A message prompt is displayed asking the player if they wish to play again (by entering y that is set to not be case sensitive) or if they wish to quit (pressing any other button). Selecting play again clears the terminal and resets the game, prompting the player to enter their name again and restarting the main game function. If they elect to quit then the game exits and closes within the terminal. A message is displayed in a jovial, nautical style if the player exits to thank them for playing and indicate that the game is ending. The exit message pulls through the players name to improve engagement and UX.
 
-![Player wins](documentation/f07-player-wins.png)
-
-![Computer wins](documentation/f08-computer-wins.png)
-
-![Draw](documentation/f09-draw-outcome.png)
-
-- F10, F11 Player and computer game over screens
-
-These screens show the end game result once a score of 5 has been reached by either the player or computer. The outcome message is updated with a larger text size to either read "You are a weiner" (intentional - not a spelling mistake, playful joke to give the user some interaction and consider, "have they really won or do they want to play the computer again as it is mocking them") or "computer wins : (", again providing a playful interaction for the user so that they are encouraged to subconsciously play again without being deterred due to a harsh output if the computer won. The game ends at these output screens and JavaScript is used to remove the event listeners on the player weapon buttons so that no more choices can be made. The refresh button then allows the user to easily reset the game if they wish to play again, clearing all the outputs and reinstating the player choice functionality.
-
-![Player game over](documentation/f10-player-game-over.png)
-
-![Computer game over](documentation/f11-computer-win-game-over.png)
+![Game over/loss output](documentation/f12-game-over.png)
 
 ## User story interaction with features
 
