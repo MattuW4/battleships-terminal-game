@@ -1,4 +1,4 @@
-# A Simple Terminal Based Battleshop Game
+# A Simple Terminal Based Battleship Application
 
 [View the live project here](https://simple-battleship-game-59e68049f437.herokuapp.com/)
 
@@ -6,7 +6,7 @@
 
 This is a web game engineered using Python and deployed via Heroku in which the player challenges the computer. The primary focus is to be able to easily and conveniently play a simple game of Battleship. The target users for the game are people interested in playing online and real-world games. A prime focus of the user experience (UX) is to be able to immediately play the game. In this version of Battleship the aim of the game is for the player to correctly guess the location of the computer's hidden battleship before they run out of turns (12) and the game ends.
 
-Battleship is a strategy type guessing game for up to two players. It is ordinarily played on ruled grids  where each player's fleet of battleships are marked. There are player vs player or player vs computer versions with varying degrees of difficulty that are informed by number of ships, board size, number of turns or other factors. The locations of the ships are concealed from the other player. Players alternate turns by selecting coordinates in an attempt to hit another player's ships, and the objective of the game is to destroy all of the opposing player;s ships. Battleship was originally paper game which dates from World War I and published in the 1930s. In 1967 is was released as a plastic board game by Milton Bradley before making the transition to digital formats later in the century. More information on Battleships can be found [here on Wikipedia](https://en.wikipedia.org/wiki/Battleship_(game)).
+Battleship is a strategy type guessing game for up to two players. It is ordinarily played on ruled grids  where each player's fleet of battleships are marked. There are player vs player or player vs computer versions with varying degrees of difficulty that are informed by number of ships, board size, number of turns or other factors. The locations of the ships are concealed from the other player. Players alternate turns by selecting coordinates in an attempt to hit another player's ships, and the objective of the game is to destroy all of the opposing player's ships. Battleship was originally paper game which dates from World War I and published in the 1930s. In 1967 is was released as a plastic board game by Milton Bradley before making the transition to digital formats later in the century. More information on Battleships can be found [here on Wikipedia](https://en.wikipedia.org/wiki/Battleship_(game)).
 
 ![Mockup](documentation/responsive.png)
 
@@ -29,11 +29,11 @@ Battleship is a strategy type guessing game for up to two players. It is ordinar
 
   1. I want to be able to immediately play a game.
 
-## Existing site features
+## Programme features
 
 - F01, F02 Load out and player name selection
 
-This is the app loadout where a player will be initially oriented to. Once the app runs the player is prompted to enter a name from a nautical themed prompt (player is referred to as 'Captain' to improve UX.) There is also input validation for the user name that prompts the user to only enter a name made up of alphabetic characters (i.e. no numbers or special characters) as well as ensuring that their name is 2 or more charcters in length.
+This is the app load out where a player will be initially oriented to. Once the app runs the player is prompted to enter a name from a nautical themed prompt (player is referred to as 'Captain' to improve UX.) There is also input validation for the user name that prompts the user to only enter a name made up of alphabetic characters (i.e. no numbers or special characters) as well as ensuring that their name is 2 or more characters in length.
 
 ![Landing page/player input](documentation/f01-player-name.png)
 ![Player input validation](documentation/f02-player-validation.png)
@@ -56,7 +56,7 @@ A function runs to randomly generate a hidden computer ship location on the boar
 
 - F07, F08 & F09 Miss, out of range and same selection output
 
-If the player's selection is validated within range (previous feature) but it does not hit the hidden ship coordinate then this is registered as a miss and an 'X' is marked on the board. The number of turns remaining is updated to decrease by 1. The message is timed to display before clearing and the game view resetting for the next player turn. The player selection is also validated as to whether it is between 0 and 4 as this is the indexing of the 5 x 5 board grid. If the selection is a negative number or greater than 4 then the 'out of range' output is displayed and the player is prompted to try another selection. The output is timed to display before clearing and the board resetting. If the player makes the same coordinate selection more than once then validation of the input triggers an output to inform them of this occurence. The output is time to display and then clear to reset the game view for the next turn. The 'turns remaining' are not updated in either instance where a player makes the same or out of range selection. The outputs are given a jovial, nautical theme to improve UX and keep the player challenged whilst not frustrating them.
+If the player's selection is validated within range (previous feature) but it does not hit the hidden ship coordinates then this is registered as a miss and an 'X' is marked on the board. The number of turns remaining is updated to decrease by 1. The message is timed to display before clearing and the game view resetting for the next player turn. The player selection is also validated as to whether it is between 0 and 4 as this is the indexing of the 5 x 5 board grid. If the selection is a negative number or greater than 4 then the 'out of range' output is displayed and the player is prompted to try another selection. The output is timed to display before clearing and the board resetting. If the player makes the same coordinate selection more than once then validation of the input triggers an output to inform them of this occurrence. The output is time to display and then clear to reset the game view for the next turn. The 'turns remaining' are not updated in either instance where a player makes the same or out of range selection. The outputs are given a jovial, nautical theme to improve UX and keep the player challenged whilst not frustrating them.
 
 ![Miss output](documentation/f07-miss-output.png)
 
@@ -66,7 +66,7 @@ If the player's selection is validated within range (previous feature) but it do
 
 - F10 Computer ship sunk and replay option
 
-If the player guesses the correct row and column location of the computer ship within the assigned number of turns and this is not a repeat or out of range selection then the player wins and the game loop breaks. An output to indicate that the player has won is shown, pulling through the ship location and number of turns remaining to provide some game statistics for the player if they wanted to challenge themselves in the future (replayability and UX consideration). A message prompt is displayed asking the player if they wish to play again (by entering y that is set to not be case sensitive) or if they wish to quit (pressing any other button). Selecting play again clears the terminal and resets the game, prompting the player to enter their name again and restarting the main game function. If they elect to quit then the game exits and closes within the terminal. A message is displayed in a jovial, nautical style if the player exits to thank them for playing and indicate that the game is ending. The exit message pulls through the players name to improve engagement and UX.
+If the player guesses the correct row and column location of the computer ship within the assigned number of turns and this is not a repeat or out of range selection then the player wins and the game loop breaks. An output to indicate that the player has won is shown, pulling through the ship location and number of turns remaining to provide some game statistics for the player if they wanted to challenge themselves in the future (replay-ability and UX consideration). A message prompt is displayed asking the player if they wish to play again (by entering y that is set to not be case sensitive) or if they wish to quit (pressing any other button). Selecting play again clears the terminal and resets the game, prompting the player to enter their name again and restarting the main game function. If they elect to quit then the game exits and closes within the terminal. A message is displayed in a jovial, nautical style if the player exits to thank them for playing and indicate that the game is ending. The exit message pulls through the players name to improve engagement and UX.
 
 ![Computer ship sunk and replay option](documentation/f10-direct-replay.png)
 
@@ -93,7 +93,7 @@ The app has been designed to work through the anticipated ranking of need and de
 
 ### Theme
 
-Throughout the game a nautical, lighthearted theme has been employed in the language used to improve the UX and give a contextual experience to the game, promoting engagement and replayability for the user.
+Throughout the game a nautical, light-hearted theme has been employed in the language used to improve the UX and give a contextual experience to the game, promoting engagement and replay-ability for the user.
 
 ### Flowchart design
 
@@ -141,8 +141,8 @@ The following details the tests that were set out and completed for the site:
 
 # Known bugs and resolutions
 
-- It was identified late in development and deployment that there is an issue created by the sleep/time function where output messages are displayed. The developer became aware too close to deployment of the project that on some occasions if the player is to continue to try and enter an input whilst the programme is in 'sleep' that this can be registered as a false positive. There were only two instances of this occuring during testing where the row and column are considered to have been entered as the same value. There was not time to implement a solution prior to deployment that is understood to address this where the keyboard can be disabled but this is understood require a further import and function creation.
-- There was a an issue whereby half of the game information and welcome loadout was 'stuck' to the top of the terminal screen when initiall deployed to Heroku. It was not clear what the cause of this was but the developer deleted the initial app and redeployed, whilst changing the python code used to create the clear utility function which at the time of deployment, appeared to have addressed this issue as it could not be repeated in the development conditions.
+- It was identified late in development and deployment that there is an issue created by the sleep/time function where output messages are displayed. The developer became aware too close to deployment of the project that on some occasions if the player is to continue to try and enter an input whilst the programme is in 'sleep' that this can be registered as a false positive. There were only two instances of this occurring during testing where the row and column are considered to have been entered as the same value. There was not time to implement a solution prior to deployment that is understood to address this where the keyboard can be disabled but this is understood require a further import and function creation.
+- There was a an issue whereby half of the game information and welcome load out was 'stuck' to the top of the terminal screen when initially deployed to Heroku. It was not clear what the cause of this was but the developer deleted the initial app and redeployed, whilst changing the python code used to create the clear utility function which at the time of deployment, appeared to have addressed this issue as it could not be repeated in the development conditions.
 
 ## Deployment
 
