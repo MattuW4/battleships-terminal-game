@@ -1,6 +1,7 @@
 # A Simple Terminal Based Battleship Application
 
 [View the live project here](https://simple-battleship-game-59e68049f437.herokuapp.com/)
+[View the GitHub repo here](https://mattuw4.github.io/battleships-terminal-game/)
 
 ## Project overview
 
@@ -153,7 +154,7 @@ The following details the tests that were set out and completed for the site:
 This project was developed and deployed using Code Institute's Python and Heroku templates. Heroku was used to deploy the programme with instructions on how to achieve this found below.
 
 ### Deployment via Heroku
-- Login to Heroku
+- Login to [Heruko](https://www.heroku.com/).
 - Once on the Dashboard, click 'Create New App'
 - Enter a unique name for your application
 - Select a region
@@ -175,7 +176,7 @@ This project was developed and deployed using Code Institute's Python and Heroku
 
 ### Cloning the repository
 
-- Navigate to the repository <https://mattuw4.github.io/battleships-terminal-game/> on GitHub;
+- Navigate to the [repository](https://mattuw4.github.io/battleships-terminal-game/) on GitHub;
 - Above the list of files, click Code;
 - Copy the URL for the repository by selecting HTTPs;
 - Open Git Bash;
@@ -215,7 +216,9 @@ Within the code files there are comments to indicate where the below resources w
 
 - Code on how to use time and sleep was informed by [Real Python](https://realpython.com/python-sleep/).
 - Tutorials on how to develop battleship games were referred to and are available at [Dylan Israel](https://www.youtube.com/watch?v=7Ki_2gr0rsE), [Robert Heaton](https://www.youtube.com/watch?v=Gi0Fdyhk1_0), [Knowledge Mavens](https://www.youtube.com/watch?v=tF1WRCrd_HQ) and [CS Students](https://www.youtube.com/watch?v=MgJBgnsDcF0)
-- Suggestions for code to create a clear function were informed by [Stack Overflow](https://stackoverflow.com/questions/47503734/what-does-printf-033c-mean)
+- Suggestions for code to create a clear function were informed by [Stack Overflow](https://stackoverflow.com/questions/47503734/what-does-printf-033c-mean) but largely informed by [Geek for geeks](https://www.geeksforgeeks.org/clear-screen-python/).
+- Exit function informed by [Stack Overflow](https://stackoverflow.com/questions/543309/programmatically-stop-execution-of-python-script).
+- W3Schools used to inform various elements within project [W3Schools](https://www.w3schools.com/).
 - The Love Sandwiches project from the Code Institute was also used to inform development of the Python.
 
 ## Acknowledgements
