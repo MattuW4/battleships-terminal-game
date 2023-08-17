@@ -1,6 +1,8 @@
 # A simple terminal battleship game.
 
-# Imports for random, time and os
+# Imports for random, time and os.
+# Time and sleep import & function
+# informed by https://realpython.com/python-sleep/.
 from random import randint
 from time import sleep
 import os
@@ -9,6 +11,9 @@ import os
 NUM_ROUNDS = 12
 # Board is a square grid of BOARD_WIDTH x BOARD_WIDTH cells.
 BOARD_WIDTH = 5
+
+# Clear utility function informed by
+# https://stackoverflow.com/questions/47503734/what-does-printf-033c-mean.
 
 
 def clear_screen():
@@ -52,6 +57,9 @@ def print_board(board):
     """
     for i in board:
         print(" ".join(i))
+
+# Random ship row and column generation informed
+# by tutorial https://www.youtube.com/watch?v=7Ki_2gr0rsE.
 
 
 def row_random(board):
