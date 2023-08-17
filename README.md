@@ -40,13 +40,13 @@ This is the app loadout where a player will be initially oriented to. Once the a
 
 - F02 Welcome & main game information screen
 
-Here the player is welcomed in an again nautical stylised manner. They are informed of the game rules and how to play the game. There is also a legend to inform as what the symbols represent within the game. The player's name is passed through from the initial input stage and referred to in the welcome loadout as 'Captain X', so as to again provide a contextualised UX. A blank board is shown to the player which is where the computer's ship will be hidden and the player has to guess. The border is styled to frame the information and make the welcome page more appealing.
+Here the player is welcomed in an again nautical stylised manner. They are informed of the game rules and how to play the game. There is also a legend to inform as what the symbols represent within the game. The player's name is passed through from the initial input stage and referred to in the welcome loadout as 'Captain X', so as to again provide a contextualised UX. A blank board is shown to the player which is where the computer's ship will be hidden and the player has to guess. The border is styled to frame the information and make the welcome page more appealing. The rules and information for the game can be found in the screen shot included in this READ.ME.
 
 ![Welcome and game information](documentation/f03-game-info.png)
 
 - F04, F05 & F06 Selection input, validation, turn and board update
 
-The player is prompted to make a selection of the row to take their turn followed by selection of a column. The player must enter a number between 0 and 4 respectively. Validation takes place to ensure that the player enters a number with an error messaged displayed if this is not the case. If the entries are validated and other conditions are not met (repeat/not within range) then the board updates with an 'X' to show the coordinate selected and the number of turns counter is reduced by 1. Turns only decrease on correct selections, not when the same entry is made or a selection out of range. The display resets (referred to later in the feature section and then the player is prompted to enter a new row and column selection.)
+A function runs to randomly generate a hidden computer ship location on the board. The player is prompted to make a selection of the row to take their turn followed by selection of a column. The player must enter a number between 0 and 4 respectively. Validation takes place to ensure that the player enters a number with an error messaged displayed if this is not the case. If the entries are validated and other conditions are not met (repeat/not within range) then the board updates with an 'X' to show the coordinate selected and the number of turns counter is reduced by 1. Turns only decrease on correct selections, not when the same entry is made or a selection out of range. The display resets (referred to later in the feature section and then the player is prompted to enter a new row and column selection.)
 
 ![Selection input and row validation](documentation/f04-row-input-validation.png)
 
@@ -80,123 +80,64 @@ If the player is not able to correctly select the computer ship within the 12 tu
 
 ## User story interaction with features
 
-The site has been designed to work through the anticipated ranking of need and desires of users from first time visitors to regular users, recognising needs and wants differ. The design and priority of features is intended to provide the information that users would require to make play the game and make an emotional connection to a gaming world. The flow through the site is intended to allow new users to find out more game information and rules whilst not cluttering the landing page. The buttons are styled with hover features to draw attention of the user and provide feedback during use, as are the output sections.
+The app has been designed to work through the anticipated ranking of need and desires of users from first time visitors to regular users, recognising needs and wants differ. The design and priority of features is intended to provide the information that users would require to make play the game and make an emotional connection to the nautical gaming world. 
 
 ## Features for future consideration and development
 
-- More interaction for the user with the output sections appearing as pop ups that brings a bit more depth to the site;
-- Styling of the score outputs to highlight that they are being incremented;
-- An element that decreases the player score when the computer scores to increase the challenge, maybe as an option that more advanced users can select;
-- Addition of "lizard" and "Spock" hands to create more variation in the game play through choice;
-- Add 8 bit background music that plays to increase excitement and suspense, this being responsive to player or computer choices.
+- Inclusion of a player board that the computer is making guesses against in order to sink the player ship
+- The ability for the player to set the location of their ship if this is an option
+- The ability to set the difficulty of the game by varying the number of ships, size of the board, a turn timer or the number of turns
+- Addition of labels for row and columns and adjustment of the index to start at '1' rather than zero
 
 ## Design
 
-### Imagery & Icons
+### Theme
 
-As stated, the font, images and iconography are styled and employed to connect with users who are existing gamers (e.g. dice 10 for favicon as this is associated with gamers) or to make orientation quicker and so facilitate access and engagement e.g. images used for the player weapon buttons are large and clearly show what they correspond to. The font is probably the main feature that styles the traditional game in a playful, 8 bit world particularly that of the indie gaming scene.
+Throughout the game a nautical, lighthearted theme has been employed in the language used to improve the UX and give a contextual experience to the game, promoting engagement and replayability for the user.
 
-### Colours and scheme
+### Flowchart design
 
-Consistent colour choices were made to make the site and game more accessible visually and aid with elements being prominent. With the contrasting colour, output indicators and imagery usage it was completely necessary to use other structural elements to establish different sections but this is something that could be explored further in future development.
+A flowchart model developed on [Lucid chart](https://www.lucidchart.com/pages/) was used to model the procedural flow of the game. The final deployment differs slightly to this as adjustments were made during development.
 
-## Wireframe sketches
+![Flowchart](documentation/flowchart.png)
 
-These defined the basic concept that initially did start out with "lizard" and "Spock" hands included but as the game was developed the scope was refined. Images used were just place holders at the time of scoping and the layout was further refined with development and testing.
+### Model
 
-### Landing page
-
-![Wireframe landing](documentation/wf1-landing.png)
-
-### Turns and scoring sections
-
-![Wireframe games](documentation/wf2-turns-and-scoring.png)
-
-### Game over outcome
-
-![Wireframe outcome](documentation/wf3-output-end-game.png)
+The model employed was based on procedural functions to request, handle, validate and return data from the player the triggers subsequent sequences of the game stages. The functions are called within the main game function, where while and if else loops are used to validate input data and update stages of the game, including outputs. As each function is executed this either returns information or prints and updates elements within the terminal. 
 
 ## Technologies employed
 
 ### Development languages
 
-- [HTML5](https://en.wikipedia.org/wiki/HTML5)
-- [CSS3](https://en.wikipedia.org/wiki/CSS)
-- [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+- [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
 
 ### Libraries, frameworks and programs
 
-- [Swampview](https://swampview.com/rock-paper-scissors-lizard-spock-rules/): this was used to access images for the rock, paper, scissors hands. All credit for these images goes to Tony Florida. This site is not for commercial purposes, only educational.
-- [Font Awesome](https://fontawesome.com/): this was used to access icons for design purposes.
-- [Google Fonts](https://fonts.google.com/): "Press Start2P" font was downloaded and imported to be applied across the project for styling purposes.
 - [Code Anywhere](https://codeanywhere.com/): this was used for version control via the terminal to commit to Code Anywhere and Push to GitHub as the repository.
 - [GitHub](https://github.com/): this was used as a repository for projects that were committed from Code Anywhere.
 - [Tiny PNG](https://tinypng.com/): this was used to compress files for inclusion.
 - [Am I responsive](https://ui.dev/amiresponsive): used to test responsivity of site.
-- [Figma](https://www.figma.com/): used to create wireframes at scoping stage.
+- [Lucid chart](https://www.lucidchart.com/pages/): used to create a flowchart model of the programme.
+- [Heruko](https://www.heroku.com/): used to deploy the programme.
+- [Code Institute Linter](https://pep8ci.herokuapp.com/): used to check the Python code against PEP8 standards.
 
 ## Validation
 
-- The site has been validated in [HTML Validator](https://validator.w3.org/). The HTML is valid at the time of writing as demonstrated below:
+- The site has been validated in [Code Institute Linter](https://pep8ci.herokuapp.com/). The Python is valid at the time of writing as demonstrated below:
 
-![HTML Validator](documentation/html-W3.png)
+![Python Validator](documentation/PEP8CI-Linter.png)
 
-There were only a couple of errors that were corrected before launch, namely removal of a redundant button id.
-
-- The site has been validated in [CSS Validator](https://jigsaw.w3.org/css-validator/). The CSS is valid at the time of writing as demonstrated below:
-
-![CSS Validator](documentation/css-W3C.png)
-
-There were a number of errors relating to syntax issues that were fixed by the developer before deployment, namely correcting a missing pixel value on a responsivity rule and correcting missing transform function.
-
-- The site has been validated in [JS Hint](https://jshint.com/). The JS is valid at the time of writing as demonstrated below:
-
-![JS Hint](documentation/js-hint-output.png)
-
-JS Hint had to be configured to ES6 which removed a series of warnings related to elements like "constants". The developer removed unnecessary semi-colons.
-
-## Lighthouse accessibility test
-
-[Google's web.dev page quality test](https://web.dev/measure/) was used to measure the website against performance, accessibility, SEO and best practice.
-
-![lighthouse-performance](documentation/performance.png)
-
-- The read out shows good results apart from in best practice. The issues could not be resolved by the developer prior to launch due to imagery origin formatting but will be revisited post deployment.
-
-### Best Practice
-
-![lighthouse-bestpractice](documentation/best-practice.png)
-
-## Browser compatibility and responsivity
-
-The site has been tested on the following browsers with no issues identified at the time of testing:
-
-- Firefox 113.0.2 (64 bit)
-- Edge 113.0. 1774.35 (64 bit)
-- Chrome 113.0. 5672.64 (64 bit)
-- Safari 16.4.1
-
-The site has been developed to be responsive at:
-
-- larger to medium screen sizes from 1200px wide and down;
-- 1075px and down;
-- medium to smaller screen sizes from 950px wide and down;
-- 725px and down;
-- 650px and down;
-- 590px and down;
-- and smaller screen sizes from 375px wide and down.
+PEP8 errors that were corrected before launch included:
+- Removal of whitespace;
+- Reduction in size of code line length to less than 80 characters;
+- The use of a generic "_" variable in place of an "i" unused variable;
+- Over or under indentation issues.
 
 ## Scenario testing and results
 
 The following details the tests that were set out and completed for the site:
 
 ![Website and game testing](documentation/scenario-testing.png)
-
-### 404 Page
-
-The 404 page was tested using with no issues identified although the developer was unable to view the 404 page before deployment [404 Checker](https://websiteadvantage.com.au/404-Error-Handler-Checker)
-
-![404 test](documentation/404-test.png)
 
 # Known bugs
 
