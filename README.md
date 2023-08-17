@@ -137,27 +137,43 @@ PEP8 errors that were corrected before launch included:
 
 The following details the tests that were set out and completed for the site:
 
-![Website and game testing](documentation/scenario-testing.png)
+![App testing](documentation/game-testing.png)
 
-# Known bugs
+# Known bugs and resolutions
 
-- Within Code Anywhere there is a warning notification of "Import statements do not load in parallel". This has been explored with support and is understood to relate to potential perforaance issues if there were a style sheet opened or linked to the style sheet within this project. As this is not a feature of this project, the warning is not thought to be significant at this time.
-- It has been noted that occasionally on some mobile devices the outcome section can overlay the results sectionw when the endgame message is displayed. This has been styled to avoid with CSS but the problem intermittently persists so will be revisited.
-- The formatting of the header has been noted to not layout correctly on one mobile device, despite styling to correct.
+- It was identified late in development and deployment that there is an issue created by the sleep/time function where output messages are displayed. The developer became aware too close to deployment of the project that on some occasions if the player is to continue to try and enter an input whilst the programme is in 'sleep' that this can be registered as a false positive. There were only two instances of this occuring during testing where the row and column are considered to have been entered as the same value. There was not time to implement a solution prior to deployment that is understood to address this where the keyboard can be disabled but this is understood require a further import and function creation.
+- There was a an issue whereby half of the game information and welcome loadout was 'stuck' to the top of the terminal screen when initiall deployed to Heroku. It was not clear what the cause of this was but the developer deleted the initial app and redeployed, whilst changing the python code used to create the clear utility function which at the time of deployment, appeared to have addressed this issue as it could not be repeated in the development conditions.
 
 ## Deployment
 
 ### Deployment of site
 
-- In the GitHub repository, select the Settings tab;
-- Select the Pages tab from the left hand menu;
-- Under the branch section select 'main' branch. This will display a message to indicate deployment if completed successfully;
-- Any subsequent changes to the project will take effect on the live page;
-- A live link to the functional site can be found here [View the live project here](https://mattuw4.github.io/Rock-paper-scissors-JavaScript-game/).
+This project was developed and deployed using Code Institute's Python and Heroku templates. Heroku was used to deploy the programme with instructions on how to achieve this found below.
+
+### Deployment via Heroku
+- Login to Heroku
+- Once on the Dashboard, click 'Create New App'
+- Enter a unique name for your application
+- Select a region
+- Click 'Create App'
+- At the Application Configuration page, apply the following to the Settings and Deploy sections:
+- Within 'Settings', scroll down to the Config Vars section
+- Add the Config Var with the Key of 'PORT' and the Value of '8000'
+- Within Settings, scroll down to the Buildpacks sections
+- Click to 'Add Buildpack'
+- Select Python from the pop-up window and Save
+- Return to the 'Add Buildpack' pop up and add the Node.js Buildpack using the same approach
+- Ensure that the Buildpacks appear as 'Python' and then 'Nodejs'
+- Navigate to the Deploy section, select Github as the deployment method, and connect to GitHub 
+- Search for GitHub repository name created for the project
+- At the bottom of the page select to deploy 'Automatically' to allow automatic updates of the Heroku app from GitHub when changes are made
+- Select 'Deploy Branch' to build the app
+- Select 'View' to launch the app
+- The application can be run from the Application Configuration section, click 'Open App'
 
 ### Cloning the repository
 
-- Navigate to the repository <https://mattuw4.github.io/Rock-paper-scissors-JavaScript-game/> on GitHub;
+- Navigate to the repository <https://mattuw4.github.io/battleships-terminal-game/> on GitHub;
 - Above the list of files, click Code;
 - Copy the URL for the repository by selecting HTTPs;
 - Open Git Bash;
@@ -189,22 +205,16 @@ The following details the tests that were set out and completed for the site:
 
 ### Content
 
-- All content was written by the developer for this site. Styling and layout are the users own work.
+- All content was written by the developer for this site unless otherwise credited. Styling and layout are the users own work.
 
 ### Code
 
 Within the code files there are comments to indicate where the below resources were used as a basis to inform the code that was ultimately produced to style the site.
 
-- Code on how to use flex box and implement for ordering purposes was informed by resources from [CSS Tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).
-- Tutorials on how to develop a rock, paper, scissors were referred to and are available at [Web Dev Simplified](https://www.youtube.com/watch?v=1yS-JV4fWqY), [Geek for geeks](https://www.geeksforgeeks.org/rock-paper-and-scissor-game-using-javascript/), [Mozilla Development Network](https://developer.mozilla.org/en-US/docs/Web/JavaScript) and [Code with Faraz](https://www.codewithfaraz.com/content/107/create-rock-paper-scissors-game-with-html-css-and-javascript)
-- A tutorial on how to create a modal was used to develop the modal page [W3Schools](https://www.w3schools.com/howto/howto_css_modals.asp)
-- The Love Maths project from the Code Institute was also used to inform development of the JavaScript
-
-### Media
-
-- The icons used in the modal and refresh buttons taken from [Font Awesome](https://fontawesome.com/)
-- The font used across the site was taken from [Google Fonts](https://fonts.google.com/)
-- All images were accessed from [Swampview](https://swampview.com/rock-paper-scissors-lizard-spock-rules/): this was used to access images for the rock, paper, scissors hands. All credit for these images goes to Tony Florida. This site is not for commercial purposes, only educational.
+- Code on how to use time and sleep was informed by [Real Python](https://realpython.com/python-sleep/).
+- Tutorials on how to develop battleship games were referred to and are available at [Dylan Israel](https://www.youtube.com/watch?v=7Ki_2gr0rsE), [Robert Heaton](https://www.youtube.com/watch?v=Gi0Fdyhk1_0), [Knowledge Mavens](https://www.youtube.com/watch?v=tF1WRCrd_HQ) and [CS Students](https://www.youtube.com/watch?v=MgJBgnsDcF0)
+- Suggestions for code to create a clear function were informed by [Stack Overflow](https://stackoverflow.com/questions/47503734/what-does-printf-033c-mean)
+- The Love Sandwiches project from the Code Institute was also used to inform development of the Python.
 
 ## Acknowledgements
 
